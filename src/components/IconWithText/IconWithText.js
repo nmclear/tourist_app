@@ -1,8 +1,7 @@
 import React from 'react';
-import {
-  Text, View, TouchableOpacity, StyleSheet,
-} from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
+import Colors from '../../constants/Colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,12 +16,17 @@ const styles = StyleSheet.create({
 
 const IconWithText = (props) => {
   const {
-    name, onPress, label, type, color, style,
+    name, onPress, label, type, color, size, style,
   } = props;
   const { container, textStyle } = styles;
   return (
     <TouchableOpacity style={[container, style]} onPress={onPress}>
-      <Icon name={name} type={type || 'material'} color={color} size={40} />
+      <Icon
+        name={name}
+        type={type || 'material'}
+        color={color || Colors.tabIconDefault}
+        size={size || 40}
+      />
       <Text style={textStyle}>{label}</Text>
     </TouchableOpacity>
   );

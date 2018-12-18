@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 
-import icons from '../constants/icons/pages/restaurantIcons';
+import icons from '../constants/icons/pages/hotelIcons';
 import Layout from '../constants/Layout';
 import formatData from '../helpers/format_flat_list_data';
 import IconWithText from '../components/IconWithText';
 
 const NUM_COL = 3;
 
-class RestaurantScreen extends Component {
+class HotelScreen extends Component {
   static navigationOptions = {
-    title: 'Restaurant',
+    title: 'Hotels',
   };
 
   renderIcons = ({ item }) => {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   listStyle: {
-    marginTop: 10,
+    paddingTop: 10,
     marginHorizontal: 1,
     paddingHorizontal: 5,
   },
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RestaurantScreen;
+export default HotelScreen;

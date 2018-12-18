@@ -5,12 +5,17 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+
+import HotelScreen from '../screens/HotelScreen';
 import RestaurantScreen from '../screens/RestaurantScreen';
+import ExploreScreen from '../screens/ExploreScreen';
+import MoreScreen from '../screens/MoreScreen';
+
 import SettingsScreen from '../screens/SettingsScreen';
 import TestScreen from '../screens/TestScreen';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Home: TestScreen,
 });
 
 HomeStack.navigationOptions = {
@@ -30,7 +35,7 @@ const RestaurantStack = createStackNavigator({
 });
 
 RestaurantStack.navigationOptions = {
-  tabBarLabel: 'Restaurant',
+  tabBarLabel: 'Restaurants',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -42,11 +47,11 @@ RestaurantStack.navigationOptions = {
 };
 
 const HotelStack = createStackNavigator({
-  Hotels: LinksScreen,
+  Hotels: HotelScreen,
 });
 
 HotelStack.navigationOptions = {
-  tabBarLabel: 'Hotel',
+  tabBarLabel: 'Hotels',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -58,7 +63,7 @@ HotelStack.navigationOptions = {
 };
 
 const ExploreStack = createStackNavigator({
-  Explore: TestScreen,
+  Explore: ExploreScreen,
 });
 
 ExploreStack.navigationOptions = {
@@ -74,7 +79,7 @@ ExploreStack.navigationOptions = {
 };
 
 const MoreStack = createStackNavigator({
-  More: SettingsScreen,
+  More: MoreScreen,
 });
 
 MoreStack.navigationOptions = {

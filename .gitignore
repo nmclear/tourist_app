@@ -11,3 +11,4 @@ npm-debug.*
 .eslintrc
 .flowconfig
 .watchmanconfig
+.DS_Store
