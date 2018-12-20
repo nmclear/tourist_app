@@ -3,19 +3,21 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
 
 import HotelScreen from '../screens/HotelScreen';
 import RestaurantScreen from '../screens/RestaurantScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import MoreScreen from '../screens/MoreScreen';
 
-import SettingsScreen from '../screens/SettingsScreen';
-import TestScreen from '../screens/TestScreen';
+// import Location from '../components/Location';
+
+import HomeScreen from '../screens/HomeScreen';
+
+import LocaleList from '../components/LocaleList';
+import LocaleScreen from '../screens/LocaleScreen';
 
 const HomeStack = createStackNavigator({
-  Home: TestScreen,
+  Home: HomeScreen,
 });
 
 HomeStack.navigationOptions = {
@@ -31,7 +33,26 @@ HomeStack.navigationOptions = {
 };
 
 const RestaurantStack = createStackNavigator({
-  Restaurants: RestaurantScreen,
+  // Restaurants: RestaurantScreen,
+  // RestaurantList: LocaleList,
+  Restaurants: {
+    screen: RestaurantScreen,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
+  RestaurantList: {
+    screen: LocaleList,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
+  LocalePage: {
+    screen: LocaleScreen,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
 });
 
 RestaurantStack.navigationOptions = {
@@ -47,7 +68,26 @@ RestaurantStack.navigationOptions = {
 };
 
 const HotelStack = createStackNavigator({
-  Hotels: HotelScreen,
+  // Hotels: HotelScreen,
+  // HotelList: LocaleList,
+  Hotels: {
+    screen: HotelScreen,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
+  HotelList: {
+    screen: LocaleList,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
+  LocalePage: {
+    screen: LocaleScreen,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
 });
 
 HotelStack.navigationOptions = {
@@ -63,7 +103,26 @@ HotelStack.navigationOptions = {
 };
 
 const ExploreStack = createStackNavigator({
-  Explore: ExploreScreen,
+  // Explore: ExploreScreen,
+  // ExploreList: LocaleList,
+  Explore: {
+    screen: ExploreScreen,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
+  ExploreList: {
+    screen: LocaleList,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
+  LocalePage: {
+    screen: LocaleScreen,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
 });
 
 ExploreStack.navigationOptions = {
@@ -79,7 +138,26 @@ ExploreStack.navigationOptions = {
 };
 
 const MoreStack = createStackNavigator({
-  More: MoreScreen,
+  // More: MoreScreen,
+  // MoreList: LocaleList,
+  More: {
+    screen: MoreScreen,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
+  MoreList: {
+    screen: LocaleList,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
+  LocalePage: {
+    screen: LocaleScreen,
+    navigationOptions: () => ({
+      headerBackTitle: null,
+    }),
+  },
 });
 
 MoreStack.navigationOptions = {

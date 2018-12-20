@@ -1,11 +1,10 @@
-export exploreIcons from './pages/exploreIcons';
-export hotelIcons from './pages/hotelIcons';
-export moreIcons from './pages/moreIcons';
-export restaurantIcons from './pages/restaurantIcons';
+export { default as exploreIcons } from './pages/exploreIcons';
+export { default as hotelIcons } from './pages/hotelIcons';
+export { default as moreIcons } from './pages/moreIcons';
+export { default as restaurantIcons } from './pages/restaurantIcons';
 
-
-export morningIcons from './time/morningIcons';
-export noonIcons from './time/noonIcons';
-export afternoonIcons from './time/afternoonIcons';
-export nighIcons from './time/nightIcons';
-export lateNightIcons from './time/lateNightIcons';
+export { default as morningIcons } from './time/morningIcons';
+export { default as noonIcons } from './time/noonIcons';
+export { default as afternoonIcons } from './time/afternoonIcons';
+export { default as nightIcons } from './time/nightIcons';
+export { default as lateNightIcons } from './time/lateNightIcons';

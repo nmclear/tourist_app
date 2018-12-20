@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, View, StyleSheet } from 'react-native';
 
-import IconBtn from '../IconBtn';
+import IconBtn from '../Buttons/IconBtn';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,11 +13,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeIconBar = (props) => {
+const MapIconBar = (props) => {
   const { container } = styles;
-  const { visible, onOpenPress } = props;
+  const { visible, onOpenPress, onUserLocationPress } = props;
   return (
-    <View style={[container, {display: visible }]}>
+    <View style={[container, { display: visible }]}>
       <IconBtn
         name={
           Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'md-information-circle-outline'
@@ -35,11 +35,11 @@ const HomeIconBar = (props) => {
       <IconBtn
         name={Platform.OS === 'ios' ? 'ios-locate' : 'md-locate'}
         type="ionicon"
-        onPress={() => {}}
+        onPress={onUserLocationPress}
         style={{ paddingVertical: 5 }}
       />
     </View>
   );
 };
 
-export default HomeIconBar;
+export default MapIconBar;

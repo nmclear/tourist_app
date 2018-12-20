@@ -1,35 +1,31 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
-import Colors from '../../constants/Colors';
+import Colors from '../../../constants/Colors';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 9,
   },
-  textStyle: {},
 });
 
-const IconWithText = (props) => {
+const HomeIconBar = (props) => {
   const {
-    name, onPress, label, type, color, size, style,
+    name, type, color, style, onPress, size,
   } = props;
-  const { container, textStyle } = styles;
+  const { container } = styles;
   return (
     <TouchableOpacity style={[container, style]} onPress={onPress}>
       <Icon
         name={name}
         type={type || 'material'}
         color={color || Colors.tabIconDefault}
-        size={size || 40}
+        size={size || 30}
       />
-      <Text style={textStyle}>{label}</Text>
     </TouchableOpacity>
   );
 };
 
-export default IconWithText;
+export default HomeIconBar;

@@ -4,7 +4,9 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import icons from '../constants/icons/pages/hotelIcons';
 import Layout from '../constants/Layout';
 import formatData from '../helpers/format_flat_list_data';
-import IconWithText from '../components/IconWithText';
+import IconTextBtn from '../components/Buttons/IconTextBtn';
+
+import listData from '../dummyData/food';
 
 const NUM_COL = 3;
 
@@ -14,6 +16,7 @@ class HotelScreen extends Component {
   };
 
   renderIcons = ({ item }) => {
+    const { navigation } = this.props;
     const { itemStyle, invisibleItem } = styles;
     if (item.empty) {
       return <View style={[itemStyle, invisibleItem]} />;
@@ -22,11 +25,12 @@ class HotelScreen extends Component {
       name, onPress, label, type, key,
     } = item;
     return (
-      <IconWithText
+      <IconTextBtn
         name={name}
         type={type}
         color="#616D7E"
-        onPress={onPress}
+        // onPress={onPress}
+        onPress={() => navigation.navigate('HotelList', { listData, title: label })}
         label={label}
         style={{ itemStyle }}
       />

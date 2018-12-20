@@ -4,7 +4,9 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import icons from '../constants/icons/pages/exploreIcons';
 import Layout from '../constants/Layout';
 import formatData from '../helpers/format_flat_list_data';
-import IconWithText from '../components/IconWithText';
+import IconTextBtn from '../components/Buttons/IconTextBtn';
+
+import listData from '../dummyData/explore';
 
 const NUM_COL = 3;
 
@@ -21,12 +23,14 @@ class ExploreScreen extends Component {
     const {
       name, onPress, label, type, key,
     } = item;
+    const { navigation } = this.props;
     return (
-      <IconWithText
+      <IconTextBtn
         name={name}
         type={type}
         color="#616D7E"
-        onPress={onPress}
+        // onPress={onPress}
+        onPress={() => navigation.navigate('ExploreList', { listData, title: label })}
         label={label}
         style={{ itemStyle }}
       />

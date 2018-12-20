@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Card } from 'react-native-elements';
-import ButtonMini from '../common/ButtonMini';
+import ButtonMini from '../Buttons/MiniButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,13 +15,13 @@ const styles = StyleSheet.create({
   wrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
+    flex: 1,
   },
   childrenContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
-  }
+  },
 });
 
 const CardModal = (props) => {
@@ -33,9 +33,7 @@ const CardModal = (props) => {
     <View style={[{ display: visible }]}>
       <Card title={title} containerStyle={container} wrapperStyle={wrapper}>
         <Text style={{ marginBottom: 10, textAlign: 'center' }}>{tagline}</Text>
-        <View style={childrenContainer}>
-            {children}
-        </View>
+        <View style={childrenContainer}>{children}</View>
         <ButtonMini title="close" onPress={onClosePress} />
       </Card>
     </View>
