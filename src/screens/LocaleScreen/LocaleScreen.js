@@ -1,29 +1,23 @@
 import React, { Component } from 'react';
 import {
-  ScrollView, View, Text, Linking, Platform, StatusBar,
+  ScrollView, View, Text, Linking, Platform,
 } from 'react-native';
 
-import { WebBrowser } from 'expo';
 import TilePageHeader from '../../components/TilePageHeader';
 import LgBlackBtn from '../../components/Buttons/LgBlackBtn';
-import IconBtn from '../../components/Buttons/IconBtn';
 import ContactBar from '../../components/ContactBar';
-import NavBackBtn from '../../components/Buttons/NavBackBtn';
+// import NavBackBtn from '../../components/Buttons/NavBackBtn';
+import SingleMarkerMap from '../../components/SingleMarkerMap';
 
 import styles from './styles';
 
 class LocaleScreen extends Component {
-  // static navigationOptions = ({ navigation }) => {
-  //   const { name } = navigation.getParam('locale');
-  //   return {
-  //     title: name,
-  //     headerStyle: {
-  //       backgroundColor: '#f4511e',
-  //     },
-  //   };
-  // };
   static navigationOptions = {
-    header: null,
+    headerTransparent: true,
+    headerTintColor: '#fff',
+    headerStyle: {
+      borderBottomWidth: 0,
+    },
   };
 
   render() {
@@ -41,10 +35,8 @@ class LocaleScreen extends Component {
     } = styles;
     return (
       <View style={container} key={id}>
-        <NavBackBtn onPress={() => navigation.pop()} />
-        <StatusBar barStyle="light-content" />
         <View>
-          <TilePageHeader uri={uri} title={name} caption={type} />
+          <TilePageHeader uri={uri} title={name} caption={type} height={160} />
           <ContactBar phone={phone} coordinates={coordinates} />
         </View>
         <ScrollView>
@@ -56,8 +48,15 @@ class LocaleScreen extends Component {
             <Text style={headerStyle}>{`About ${name}`}</Text>
             <Text style={descrStyle}>{description || 'No Details'}</Text>
           </View>
+          <View>
+            <SingleMarkerMap
+              scrollable={false}
+              zoomable={false}
+              markerName={name}
+              coordinate={coordinates}
+            />
+          </View>
         </ScrollView>
-        <LgBlackBtn title="Learn More" onPress={() => WebBrowser.openBrowserAsync(website)} />
       </View>
     );
   }

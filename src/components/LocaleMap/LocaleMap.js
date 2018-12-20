@@ -68,10 +68,6 @@ class LocaleMap extends React.Component {
     //       <Text>Loading...</Text>
     //     </View>
     //   );
-    // }
-    console.log('==================');
-    console.log(followUserLocation);
-    console.log('==================');
 
     return (
       <MapView

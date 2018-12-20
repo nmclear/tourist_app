@@ -102,8 +102,6 @@ class HomeScreen extends Component {
       followUserLocation,
     } = this.state;
 
-    console.log(`test-  ${followUserLocation}`);
-
     return (
       <View style={container}>
         <MapIconBar

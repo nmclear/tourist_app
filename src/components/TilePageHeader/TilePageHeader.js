@@ -2,7 +2,9 @@ import React from 'react';
 import { Tile } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-const BeerTile = ({ uri, title, caption }) => (
+const TilePageHeader = ({
+  uri, title, caption, height,
+}) => (
   <Tile
     featured
     adjustsFontSizeToFit="true"
@@ -10,16 +12,21 @@ const BeerTile = ({ uri, title, caption }) => (
     imageSrc={{ uri }}
     title={title}
     caption={caption}
-    height={140}
+    height={height}
     titleStyle={{ fontSize: 30, fontWeight: 'bold' }}
     captionStyle={{ fontSize: 20, fontWeight: '500' }}
   />
 );
 
-BeerTile.propTypes = {
+TilePageHeader.propTypes = {
   uri: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   caption: PropTypes.string.isRequired,
+  height: PropTypes.number,
 };
 
-export default BeerTile;
+TilePageHeader.defaultProps = {
+  height: 140,
+};
+
+export default TilePageHeader;

@@ -7,6 +7,7 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'space-between',
   },
+
   textBox: {
     backgroundColor: 'white',
     padding: 20,

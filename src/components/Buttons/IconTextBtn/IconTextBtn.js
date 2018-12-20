@@ -24,7 +24,7 @@ const IconWithText = (props) => {
       <Icon
         name={name}
         type={type || 'material'}
-        color={color || Colors.tabIconDefault}
+        color={color || Colors.iconDefault}
         size={size || 40}
       />
       <Text style={[textStyle, labelStyle || {}]}>{label}</Text>

@@ -4,18 +4,29 @@ import {
   View, Linking, Platform, StyleSheet,
 } from 'react-native';
 import IconTextBtn from '../Buttons/IconTextBtn';
+import Colors from '../../constants/Colors';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    backgroundColor: '#f4f4f4',
+    height: 65,
+  },
+  rightBorder: {
+    borderRightColor: Colors.iconDefault,
+    borderRightWidth: 1,
+    borderStyle: 'solid',
+  },
+  borderHeightAdjust: {
+    marginVertical: 9,
   },
 });
 
 const ContactBar = (props) => {
   const { phone, website, coordinates } = props;
   const { latitude, longitude } = coordinates;
-  const { container } = styles;
+  const { container, rightBorder, borderHeightAdjust } = styles;
 
   const mapLink = Platform.select({
     ios: `http://maps.apple.com/maps?daddr=${latitude},${longitude}`,
@@ -29,6 +40,8 @@ const ContactBar = (props) => {
         label="CALL"
         labelStyle={{ fontSize: 12 }}
         size={28}
+        color={Colors.attentionColor}
+        style={[rightBorder, borderHeightAdjust]}
         onPress={() => Linking.openURL(`tel:+1${phone}`)}
       />
       <IconTextBtn
@@ -37,6 +50,8 @@ const ContactBar = (props) => {
         label="WEBSITE"
         labelStyle={{ fontSize: 12 }}
         size={28}
+        color={Colors.attentionColor}
+        style={[rightBorder, borderHeightAdjust]}
         onPress={() => Linking.openURL(website)}
       />
       <IconTextBtn
@@ -45,6 +60,8 @@ const ContactBar = (props) => {
         label="DIRECTIONS"
         labelStyle={{ fontSize: 12 }}
         size={28}
+        color={Colors.attentionColor}
+        style={[rightBorder, borderHeightAdjust]}
         onPress={() => Linking.openURL(mapLink)}
       />
       <IconTextBtn
@@ -53,6 +70,8 @@ const ContactBar = (props) => {
         label="UBER"
         labelStyle={{ fontSize: 12 }}
         size={28}
+        color={Colors.attentionColor}
+        style={borderHeightAdjust}
         onPress={() => {}}
       />
     </View>
