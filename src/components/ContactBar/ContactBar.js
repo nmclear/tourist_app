@@ -3,6 +3,8 @@ import React from 'react';
 import {
   View, Linking, Platform, StyleSheet,
 } from 'react-native';
+import { WebBrowser } from 'expo';
+
 import IconTextBtn from '../Buttons/IconTextBtn';
 import Colors from '../../constants/Colors';
 
@@ -24,8 +26,8 @@ const styles = StyleSheet.create({
 });
 
 const ContactBar = (props) => {
-  const { phone, website, coordinates } = props;
-  const { latitude, longitude } = coordinates;
+  const { phone, website, coordinate } = props;
+  const { latitude, longitude } = coordinate;
   const { container, rightBorder, borderHeightAdjust } = styles;
 
   const mapLink = Platform.select({
@@ -52,7 +54,8 @@ const ContactBar = (props) => {
         size={28}
         color={Colors.attentionColor}
         style={[rightBorder, borderHeightAdjust]}
-        onPress={() => Linking.openURL(website)}
+        // onPress={() => Linking.openURL(website)}
+        onPress={() => WebBrowser.openBrowserAsync(website)}
       />
       <IconTextBtn
         name={Platform.OS === 'ios' ? 'ios-map' : 'md-map'}

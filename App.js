@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { ApolloProvider } from 'react-apollo';
 import {
   Platform, StatusBar, StyleSheet, View,
 } from 'react-native';
 import {
   AppLoading, Asset, Font, Icon,
 } from 'expo';
+
+import client from './src/graphql/apollo_client';
+
 import AppNavigator from './src/navigation/AppNavigator';
 
 class App extends Component {
@@ -49,10 +53,12 @@ class App extends Component {
       );
     }
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
-      </View>
+      <ApolloProvider client={client}>
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          <AppNavigator />
+        </View>
+      </ApolloProvider>
     );
   }
 }
@@ -65,3 +71,16 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+// import React from 'react';
+// import { ApolloProvider } from 'react-apollo';
+// import AppNavigator from './src/navigation/AppNavigator';
+
+// import client from './src/graphql/apollo_client';
+
+// const App = () => (
+//   <ApolloProvider client={client}>
+//     <AppNavigator />
+//   </ApolloProvider>
+// );
+// export default App;
