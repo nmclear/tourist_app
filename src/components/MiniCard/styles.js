@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   textContainer: {
     flexDirection: 'column',
     paddingLeft: 15,
+    paddingRight: 5,
   },
 });
 

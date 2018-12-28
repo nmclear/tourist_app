@@ -4,8 +4,8 @@ import { graphql } from 'react-apollo';
 import getDayOfWeek from '../../../helpers/get_day_of_week';
 
 const query = gql`
-  {
-    eateries {
+  query getHotelById($id: ID!){
+    hotel(id: $id) {
       id
       name
       description
@@ -15,6 +15,7 @@ const query = gql`
         phone
         email
         website
+        opentable
         weekdayHours {
           ${getDayOfWeek()} {
             open
@@ -37,16 +38,25 @@ const query = gql`
   }
 `;
 
-const props = ({ data }) => {
-  const { loading, error, eateries } = data;
+const props = (props) => {
+  const { data } = props;
+  const { loading, error, hotel } = data;
 
   if (loading || error) return { loading, error };
-
   return {
-    eateries,
+    locale: hotel,
     loading,
     error,
   };
 };
 
-export default graphql(query, { props });
+const options = ({ navigation }) => {
+  const id = navigation.getParam('id');
+  return {
+    variables: { id },
+    fetchPolicy: 'cache-and-network',
+    partialRefetch: true,
+  };
+};
+
+export default graphql(query, { props, options });

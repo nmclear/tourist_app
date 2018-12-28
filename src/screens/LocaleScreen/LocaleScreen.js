@@ -5,12 +5,11 @@ import {
 
 import { Badge } from 'react-native-elements';
 
-import { compose } from 'react-apollo';
 
-import getAllEateriesQuery from '../../graphql/queries/eateries/get_all_eateries';
+import getEateryByIdQuery from '../../graphql/queries/eateries/get_eatery_by_id';
+import getDayOfWeek from '../../helpers/get_day_of_week';
 
 import TilePageHeader from '../../components/TilePageHeader';
-import LgBlackBtn from '../../components/Buttons/LgBlackBtn';
 import ContactBar from '../../components/ContactBar';
 import OpenTableBtn from '../../components/Buttons/OpenTableBtn';
 import SingleMarkerMap from '../../components/SingleMarkerMap';
@@ -44,23 +43,40 @@ class LocaleScreen extends Component {
     </Badge>
   ));
 
-  render() {
-    // const { navigation } = this.props;
-    // const locale = navigation.getParam('locale');
+  renderHours = (hours) => {
+    const { open, close } = hours[getDayOfWeek()];
+    return (
+      <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+        <Text>
+          Hours:
+          {' '}
+          {open}
+          {' '}
+-
+          {' '}
+          {close}
+        </Text>
+      </View>
+    );
+  };
 
-    const { error, loading, eateries } = this.props;
+  render() {
+    const { navigation } = this.props;
+    // const locale = navigation.getParam('id');
+
+    const { error, loading, locale } = this.props;
 
     if (error) return <View />;
     if (loading) return <View />;
 
     const {
       id, uri, name, description, location, contact, groups, category,
-    } = eateries[0];
+    } = locale;
 
     const {
-      phone, email, website, hours,
+      phone, email, website, weekdayHours, opentable,
     } = contact;
-    const opentable = 'https://www.opentable.com/red-ginger-of-traverse-city';
+
     const {
       address, city, state, zipcode, coordinate,
     } = location;
@@ -75,7 +91,9 @@ class LocaleScreen extends Component {
           <TilePageHeader uri={uri} title={name} caption={category} height={160} />
           <ContactBar phone={phone} coordinate={coordinate} website={website} />
         </View>
-        <ScrollView>
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}
+        >
           <View style={textBox}>
             <Text style={headerStyle}>{`About ${name}`}</Text>
 
@@ -95,6 +113,7 @@ class LocaleScreen extends Component {
           {opentable && <OpenTableBtn link={opentable} />}
 
           <View>
+            {weekdayHours && this.renderHours(weekdayHours)}
             <Text style={{ textAlign: 'center', marginVertical: 10 }}>
               {`${address} ${city}, ${state} ${zipcode}`}
             </Text>
@@ -111,5 +130,6 @@ class LocaleScreen extends Component {
   }
 }
 
-// export default LocaleScreen;
-export default getAllEateriesQuery(LocaleScreen);
+export default LocaleScreen;
+// export default getAllEateriesQuery(LocaleScreen);
+// export default getEateryByIdQuery(LocaleScreen);

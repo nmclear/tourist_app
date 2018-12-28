@@ -4,7 +4,6 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 
-import HotelScreen from '../screens/HotelScreen';
 import RestaurantScreen from '../screens/RestaurantScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import MoreScreen from '../screens/MoreScreen';
@@ -13,8 +12,13 @@ import MoreScreen from '../screens/MoreScreen';
 
 import HomeScreen from '../screens/HomeScreen';
 
-import LocaleList from '../components/LocaleList';
+import ListScreen from '../screens/ListScreen';
 import LocaleScreen from '../screens/LocaleScreen';
+
+import getEateriesByGroup from '../graphql/queries/eateries/get_eateries_by_group';
+import getEateryById from '../graphql/queries/eateries/get_eatery_by_id';
+
+import { HotelStack } from './stacks';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -34,7 +38,7 @@ HomeStack.navigationOptions = {
 
 const RestaurantStack = createStackNavigator({
   // Restaurants: RestaurantScreen,
-  // RestaurantList: LocaleList,
+  // RestaurantList: ListScreen,
   Restaurants: {
     screen: RestaurantScreen,
     navigationOptions: () => ({
@@ -42,13 +46,15 @@ const RestaurantStack = createStackNavigator({
     }),
   },
   RestaurantList: {
-    screen: LocaleList,
+    // screen: ListScreen,
+    screen: getEateriesByGroup(ListScreen),
     navigationOptions: () => ({
       headerBackTitle: null,
     }),
   },
   LocalePage: {
-    screen: LocaleScreen,
+    // screen: LocaleScreen,
+    screen: getEateryById(LocaleScreen),
     navigationOptions: () => ({
       headerBackTitle: null,
     }),
@@ -67,44 +73,9 @@ RestaurantStack.navigationOptions = {
   ),
 };
 
-const HotelStack = createStackNavigator({
-  // Hotels: HotelScreen,
-  // HotelList: LocaleList,
-  Hotels: {
-    screen: HotelScreen,
-    navigationOptions: () => ({
-      headerBackTitle: null,
-    }),
-  },
-  HotelList: {
-    screen: LocaleList,
-    navigationOptions: () => ({
-      headerBackTitle: null,
-    }),
-  },
-  LocalePage: {
-    screen: LocaleScreen,
-    navigationOptions: () => ({
-      headerBackTitle: null,
-    }),
-  },
-});
-
-HotelStack.navigationOptions = {
-  tabBarLabel: 'Hotels',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-bed' : 'md-bed'}
-      type="ionicon"
-      size={34}
-    />
-  ),
-};
-
 const ExploreStack = createStackNavigator({
   // Explore: ExploreScreen,
-  // ExploreList: LocaleList,
+  // ExploreList: ListScreen,
   Explore: {
     screen: ExploreScreen,
     navigationOptions: () => ({
@@ -112,7 +83,7 @@ const ExploreStack = createStackNavigator({
     }),
   },
   ExploreList: {
-    screen: LocaleList,
+    screen: ListScreen,
     navigationOptions: () => ({
       headerBackTitle: null,
     }),
@@ -139,7 +110,7 @@ ExploreStack.navigationOptions = {
 
 const MoreStack = createStackNavigator({
   // More: MoreScreen,
-  // MoreList: LocaleList,
+  // MoreList: ListScreen,
   More: {
     screen: MoreScreen,
     navigationOptions: () => ({
@@ -147,7 +118,7 @@ const MoreStack = createStackNavigator({
     }),
   },
   MoreList: {
-    screen: LocaleList,
+    screen: ListScreen,
     navigationOptions: () => ({
       headerBackTitle: null,
     }),

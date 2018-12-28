@@ -54,7 +54,6 @@ const ContactBar = (props) => {
         size={28}
         color={Colors.attentionColor}
         style={[rightBorder, borderHeightAdjust]}
-        // onPress={() => Linking.openURL(website)}
         onPress={() => WebBrowser.openBrowserAsync(website)}
       />
       <IconTextBtn

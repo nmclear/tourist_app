@@ -30,7 +30,8 @@ class RestaurantScreen extends Component {
         type={type}
         color="#616D7E"
         // onPress={onPress}
-        onPress={() => navigation.navigate('RestaurantList', { listData, title: label })}
+        onPress={() => navigation.navigate('RestaurantList', { title: label, group: key, category: 'EATERY' })
+        }
         label={label}
         style={{ itemStyle }}
       />

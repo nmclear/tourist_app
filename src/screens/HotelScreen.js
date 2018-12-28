@@ -30,7 +30,8 @@ class HotelScreen extends Component {
         type={type}
         color="#616D7E"
         // onPress={onPress}
-        onPress={() => navigation.navigate('HotelList', { listData, title: label })}
+        onPress={() => navigation.navigate('HotelList', { title: label, group: key, category: 'HOTEL' })
+        }
         label={label}
         style={{ itemStyle }}
       />

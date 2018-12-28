@@ -9,7 +9,7 @@ const SingleMarkerMap = (props) => {
   } = props;
   return (
     <MapView
-      style={{ flex: 1, height: mapHeight || 150 }}
+      style={{ height: mapHeight || 150 }}
       initialRegion={{ ...coordinate, ...zoomedDelta }}
       scrollEnabled={scrollable}
       zoomEnabled={zoomable}
