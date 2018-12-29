@@ -7,9 +7,9 @@ import LocaleList from '../../components/LocaleList';
 // import getLocalesByGroup from '../../graphql/queries/get_locales_by_group';
 
 class LocaleScreen extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.getParam('title'),
-  });
+  // static navigationOptions = ({ navigation }) => ({
+  //   title: navigation.getParam('title'),
+  // });
 
   render() {
     const {
@@ -20,8 +20,6 @@ class LocaleScreen extends Component {
 
     if (error) return <View />;
     if (loading) return <View />;
-
-    console.log(locales);
 
     return (
       <View style={{ flex: 1 }}>

@@ -1,37 +1,31 @@
 import React, { Component } from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 
-import icons from '../constants/icons/pages/restaurantIcons';
-import Layout from '../constants/Layout';
-import formatData from '../helpers/format_flat_list_data';
-import IconTextBtn from '../components/Buttons/IconTextBtn';
-
-import listData from '../dummyData/food';
+import Layout from '../../constants/Layout';
+import formatData from '../../helpers/format_flat_list_data';
+import IconTextBtn from '../../components/Buttons/IconTextBtn';
 
 const NUM_COL = 3;
 
-class RestaurantScreen extends Component {
-  static navigationOptions = {
-    title: 'Restaurants',
-  };
-
+class IconScreen extends Component {
   renderIcons = ({ item }) => {
-    const { navigation } = this.props;
+    const { navigation, category } = this.props;
+
     const { itemStyle, invisibleItem } = styles;
     if (item.empty) {
       return <View style={[itemStyle, invisibleItem]} />;
     }
     const {
-      name, onPress, label, type, key,
+      name, label, type, key,
     } = item;
+
+    const onPress = () => navigation.navigate('LocaleList', { title: label, group: key, category });
     return (
       <IconTextBtn
         name={name}
         type={type}
         color="#616D7E"
-        // onPress={onPress}
-        onPress={() => navigation.navigate('RestaurantList', { title: label, group: key, category: 'EATERY' })
-        }
+        onPress={onPress}
         label={label}
         style={{ itemStyle }}
       />
@@ -40,6 +34,7 @@ class RestaurantScreen extends Component {
 
   render() {
     const { container, listStyle } = styles;
+    const { icons } = this.props;
 
     return (
       <View style={container}>
@@ -73,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RestaurantScreen;
+export default IconScreen;

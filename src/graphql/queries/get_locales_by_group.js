@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 
 const query = gql`
-  query getLocalessByGroup($category: Category, $group: EateryGroup) {
+  query getLocalesByGroup($category: Category, $group: EateryGroup) {
     localesByGroup(category: $category, group: $group) {
       id
       name

@@ -2,101 +2,99 @@ import { Platform } from 'react-native';
 
 export default [
   {
-    key: '0',
+    key: 'BIKE',
     name: 'bike',
     type: 'material-community',
     label: 'Bike Trails',
-    onPress: () => {},
   },
   {
-    key: '1',
+    key: 'HIKING',
     name: 'terrain',
     type: 'material-community',
     label: 'Hiking',
-    onPress: () => {},
   },
   {
-    key: '2',
+    key: 'BEACH',
     name: 'beach',
     type: 'material-community',
     label: 'Beaches',
-    onPress: () => {},
   },
   {
-    key: '3',
+    key: 'LAKE',
     name: 'waves',
     type: 'material-community',
     label: 'Lakes',
-    onPress: () => {},
   },
   {
-    key: '4',
+    key: 'SKIING',
     name: 'snowflake',
     type: 'material-community',
     label: 'Skiing',
-    onPress: () => {},
   },
   {
-    key: '5',
+    key: 'BREWERY',
     name: Platform.OS === 'ios' ? 'ios-beer' : 'md-beer',
     type: 'ionicon',
     label: 'Breweries',
-    onPress: () => {},
+    // CHECKED
   },
   {
-    key: '6',
+    key: 'WINERY',
     name: Platform.OS === 'ios' ? 'ios-wine' : 'md-wine',
     type: 'ionicon',
     label: 'Wineries',
-    onPress: () => {},
+    // CHECKED
   },
   {
-    key: '7',
+    key: 'THEATER',
     name: 'ticket',
     type: 'material-community',
     label: 'Theater',
-    onPress: () => {},
+    // CHECKED
   },
   {
-    key: '8',
+    key: 'PARKS',
     name: 'flower',
     type: 'material-community',
     label: 'Parks',
-    onPress: () => {},
   },
   {
-    key: '9',
+    key: 'NIGHT_LIFE',
     name: 'glass-cocktail',
     type: 'material-community',
     label: 'Nightlife',
-    onPress: () => {},
+    // CHECKED
   },
   {
-    key: '10',
+    key: 'ART',
     name: Platform.OS === 'ios' ? 'ios-brush' : 'md-brush',
     type: 'ionicon',
     label: 'Art',
-    onPress: () => {},
+    // CHECKED
   },
   {
-    key: '11',
+    key: 'GOLF',
     name: 'golf',
     type: 'material-community',
     label: 'Golf',
-    onPress: () => {},
   },
   {
-    key: '12',
+    key: 'GYMS',
     name: 'dumbbell',
     type: 'material-community',
     label: 'Gyms',
-    onPress: () => {},
   },
   {
-    key: '13',
+    key: 'DOG_FRIENDLY',
     name: Platform.OS === 'ios' ? 'ios-paw' : 'md-paw',
     type: 'ionicon',
     label: 'Dog Friendly',
-    onPress: () => {},
+  },
+  {
+    key: 'DOWNTOWN',
+    name: 'city',
+    type: 'material-community',
+    label: 'Downtown',
+    // CHECKED
   },
 ];

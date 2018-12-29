@@ -9,44 +9,44 @@ import IconScreen from '../../screens/IconScreen';
 import ListScreen from '../../screens/ListScreen';
 import LocaleScreen from '../../screens/LocaleScreen';
 
-import icons from '../../constants/icons/pages/hotelIcons';
+import icons from '../../constants/icons/pages/eateryIcons';
 
-import getHotelsByGroup from '../../graphql/queries/hotels/get_hotels_by_group';
-import getHotelById from '../../graphql/queries/hotels/get_hotel_by_id';
+import getEateriesByGroup from '../../graphql/queries/eateries/get_eateries_by_group';
+import getEateryById from '../../graphql/queries/eateries/get_eatery_by_id';
 
-const HotelStack = createStackNavigator({
+const EateryStack = createStackNavigator({
   Eateries: {
-    screen: props => <IconScreen {...props} icons={icons} category="HOTEL" />,
+    screen: props => <IconScreen {...props} icons={icons} category="EATERY" />,
     navigationOptions: () => ({
-      title: 'Hotels',
+      title: 'Restaurants',
       headerBackTitle: null,
     }),
   },
   LocaleList: {
-    screen: getHotelsByGroup(ListScreen),
+    screen: getEateriesByGroup(ListScreen),
     navigationOptions: ({ navigation }) => ({
       title: navigation.getParam('title'),
       headerBackTitle: null,
     }),
   },
   LocalePage: {
-    screen: getHotelById(LocaleScreen),
+    screen: getEateryById(LocaleScreen),
     navigationOptions: () => ({
       headerBackTitle: null,
     }),
   },
 });
 
-HotelStack.navigationOptions = {
-  tabBarLabel: 'Hotels',
+EateryStack.navigationOptions = {
+  tabBarLabel: 'Restaurants',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-bed' : 'md-bed'}
+      name={Platform.OS === 'ios' ? 'ios-restaurant' : 'md-restaurant'}
       type="ionicon"
       size={34}
     />
   ),
 };
 
-export default HotelStack;
+export default EateryStack;

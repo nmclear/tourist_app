@@ -6,119 +6,110 @@ export default [
     name: Platform.OS === 'ios' ? 'ios-calendar' : 'md-calendar',
     type: 'ionicon',
     label: 'Events',
-    onPress: () => {},
   },
   {
     key: '1',
     name: 'parking',
     type: 'material-community',
     label: 'Parking',
-    onPress: () => {},
   },
   {
     key: '2',
     name: 'routes',
     type: 'material-community',
     label: 'Directions',
-    onPress: () => {},
   },
   {
     key: '3',
     name: Platform.OS === 'ios' ? 'ios-sunny' : 'md-sunny',
     type: 'ionicon',
     label: 'Weather',
-    onPress: () => {},
   },
   {
     key: '4',
     name: Platform.OS === 'ios' ? 'ios-bus' : 'md-bus',
     type: 'ionicon',
     label: 'Bus',
-    onPress: () => {},
   },
   {
     key: '5',
     name: 'waves',
     type: 'material-community',
     label: 'Lake Info',
-    onPress: () => {},
   },
   {
     key: '6',
     name: 'coffee',
     type: 'material-community',
     label: 'Coffee',
-    onPress: () => {},
+    // CHECKED
   },
   {
     key: '7',
     name: Platform.OS === 'ios' ? 'ios-snow' : 'md-snow',
     type: 'ionicon',
     label: 'Skiing',
-    onPress: () => {},
   },
   {
     key: '8',
     name: 'golf',
     type: 'material-community',
     label: 'Golf',
-    onPress: () => {},
   },
   {
     key: '9',
     name: 'city-variant',
     type: 'material-community',
     label: 'Commons',
-    onPress: () => {},
+    // CHECKED
+    // SHOULD ADD TO LANDMARK TOO
   },
   {
     key: '10',
     name: 'beach',
     type: 'material-community',
     label: 'Beaches',
-    onPress: () => {},
   },
   {
     key: '11',
     name: 'van-passenger',
     type: 'material-community',
     label: 'Tours',
-    onPress: () => {},
+    // CHECKED
+    // SHOULD ADD TO LANDMARK TOO
   },
   {
     key: '12',
     name: Platform.OS === 'ios' ? 'shopping' : 'shopping',
     type: 'material-community',
     label: 'Shopping',
-    onPress: () => {},
+    // CHECKED
   },
   {
     key: '13',
     name: 'road-variant',
     type: 'material-community',
     label: 'Car Trips',
-    onPress: () => {},
+    // CHECKED
+    // SHOULD ADD TO TRANSPORTATION TOO
   },
   {
     key: '14',
     name: 'taxi',
     type: 'material-community',
     label: 'Taxi',
-    onPress: () => {},
   },
   {
     key: '15',
     name: 'tractor',
     type: 'material-community',
     label: 'Farms',
-    onPress: () => {},
   },
   {
     key: '16',
     name: 'lighthouse',
     type: 'material-community',
     label: 'Lighthouses',
-    onPress: () => {},
   },
   {
     key: '17',
@@ -126,6 +117,5 @@ export default [
       Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'md-information-circle-outline',
     type: 'ionicon',
     label: 'About',
-    onPress: () => {},
   },
 ];

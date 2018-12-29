@@ -1,7 +1,7 @@
 export { default as exploreIcons } from './pages/exploreIcons';
 export { default as hotelIcons } from './pages/hotelIcons';
 export { default as moreIcons } from './pages/moreIcons';
-export { default as restaurantIcons } from './pages/restaurantIcons';
+export { default as restaurantIcons } from './pages/eateryIcons';
 
 export { default as morningIcons } from './time/morningIcons';
 export { default as noonIcons } from './time/noonIcons';
