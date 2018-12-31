@@ -9,14 +9,14 @@ const NUM_COL = 3;
 
 class IconScreen extends Component {
   renderIcons = ({ item }) => {
-    const { navigation, category } = this.props;
+    const { navigation } = this.props;
 
     const { itemStyle, invisibleItem } = styles;
     if (item.empty) {
       return <View style={[itemStyle, invisibleItem]} />;
     }
     const {
-      name, label, type, key,
+      name, label, type, key, category,
     } = item;
 
     const onPress = () => navigation.navigate('LocaleList', { title: label, group: key, category });

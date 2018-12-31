@@ -1,5 +1,3 @@
-import { Platform } from 'react-native';
-
 export default [
   {
     key: '0',
@@ -29,11 +27,4 @@ export default [
     label: 'Taxi',
     onPress: () => {},
   },
-//   {
-//     key: '4',
-//     name: Platform.OS === 'ios' ? 'ios-key' : 'md-key',
-//     type: 'ionicon',
-//     label: 'Air BnB',
-//     onPress: () => {},
-//   },
 ];

@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import {
-  ScrollView, View, Text, Linking, Platform,
-} from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 
 import { Badge } from 'react-native-elements';
 
-
-import getEateryByIdQuery from '../../graphql/queries/eateries/get_eatery_by_id';
 import getDayOfWeek from '../../helpers/get_day_of_week';
 
 import TilePageHeader from '../../components/TilePageHeader';
@@ -91,9 +87,7 @@ class LocaleScreen extends Component {
           <TilePageHeader uri={uri} title={name} caption={category} height={160} />
           <ContactBar phone={phone} coordinate={coordinate} website={website} />
         </View>
-        <ScrollView
-          contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}
-        >
+        <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}>
           <View style={textBox}>
             <Text style={headerStyle}>{`About ${name}`}</Text>
 
@@ -131,5 +125,3 @@ class LocaleScreen extends Component {
 }
 
 export default LocaleScreen;
-// export default getAllEateriesQuery(LocaleScreen);
-// export default getEateryByIdQuery(LocaleScreen);

@@ -1,118 +1,141 @@
 import { Platform } from 'react-native';
 
+import { EATERY } from '../../categories';
+
+const category = EATERY;
+
 export default [
   {
     key: 'LAKE_VIEW',
     name: 'waves',
     type: 'material-community',
     label: 'Lake View',
+    category,
   },
   {
     key: 'OUTDOOR',
     name: 'weather-sunny',
     type: 'material-community',
     label: 'Outdoor',
+    category,
   },
   {
     key: 'DOWNTOWN',
     name: 'city',
     type: 'material-community',
     label: 'Downtown',
+    category,
   },
   {
     key: 'AMERICAN',
     name: 'hamburger',
     type: 'material-community',
     label: 'American',
+    category,
   },
   {
     key: 'PIZZA',
     name: Platform.OS === 'ios' ? 'ios-pizza' : 'md-pizza',
     type: 'ionicon',
     label: 'Pizza',
+    category,
   },
   {
     key: 'ITALIAN',
     name: 'silverware-variant',
     type: 'material-community',
     label: 'Italian',
+    category,
   },
   {
     key: 'STEAK',
     name: 'knife',
     type: 'material-community',
     label: 'Steak',
+    category,
   },
   {
     key: 'BREAKFAST',
     name: Platform.OS === 'ios' ? 'ios-egg' : 'md-egg',
     type: 'ionicon',
     label: 'Breakfast',
+    category,
   },
   {
     key: 'MEXICAN',
     name: 'taco',
     type: 'material-community',
     label: 'Mexican',
+    category,
   },
   {
     key: 'BAR',
     name: 'glass-mug',
     type: 'material-community',
     label: 'Bar',
+    category,
   },
   {
     key: 'SEAFOOD',
     name: 'bowl',
     type: 'material-community',
     label: 'Seafood',
+    category,
   },
   {
     key: 'SUSHI',
     name: 'rice',
     type: 'material-community',
     label: 'Sushi',
+    category,
   },
   {
     key: 'DESSERT',
     name: Platform.OS === 'ios' ? 'ios-ice-cream' : 'md-ice-cream',
     type: 'ionicon',
     label: 'Desserts',
+    category,
   },
   {
     key: 'BAKERY',
     name: 'cupcake',
     type: 'material-community',
     label: 'Bakery',
+    category,
   },
   {
     key: 'LATE_NIGHT',
     name: 'owl',
     type: 'material-community',
     label: 'Late Night',
+    category,
   },
   {
     key: 'SANDWHICH',
     name: 'food',
     type: 'material-community',
     label: 'Sandwich',
+    category,
   },
   {
     key: 'BREWERY',
     name: 'hops',
     type: 'material-community',
     label: 'Brewery',
+    category,
   },
   {
     key: 'DOG_FRIENDLY',
     name: 'dog-side',
     type: 'material-community',
     label: 'Dog Friendly',
+    category,
   },
   {
     key: 'DELIVERY',
     name: 'truck-fast',
     type: 'material-community',
     label: 'Delivery',
+    category,
   },
 ];

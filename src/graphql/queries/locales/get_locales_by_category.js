@@ -1,11 +1,13 @@
 import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 
+import config from '../config/locales_by_category_config';
+
 import getDayOfWeek from '../../../helpers/get_day_of_week';
 
 const query = gql`
-  query getHotelById($id: ID!){
-    hotel(id: $id) {
+  query getLocalesByCategory($category: Category){
+    localesByCategory(category: $category) {
       id
       name
       description
@@ -15,7 +17,6 @@ const query = gql`
         phone
         email
         website
-        opentable
         weekdayHours {
           ${getDayOfWeek()} {
             open
@@ -38,25 +39,4 @@ const query = gql`
   }
 `;
 
-const props = (props) => {
-  const { data } = props;
-  const { loading, error, hotel } = data;
-
-  if (loading || error) return { loading, error };
-  return {
-    locale: hotel,
-    loading,
-    error,
-  };
-};
-
-const options = ({ navigation }) => {
-  const id = navigation.getParam('id');
-  return {
-    variables: { id },
-    fetchPolicy: 'cache-and-network',
-    partialRefetch: true,
-  };
-};
-
-export default graphql(query, { props, options });
+export default graphql(query, config);

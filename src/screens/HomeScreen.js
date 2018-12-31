@@ -74,7 +74,7 @@ class HomeScreen extends Component {
     } else if (time >= 18 && time < 22) {
       icons = nightIcons;
       greeting = 'Good Evening!';
-    } else if (time >= 22 && time < 4) {
+    } else if (time >= 22 || time < 4) {
       icons = lateNightIcons;
       greeting = 'Happy LateNight!';
     }

@@ -1,19 +1,3 @@
-import { gql } from 'apollo-boost';
-import { graphql } from 'react-apollo';
-
-const query = gql`
-  query getLocalesByGroup($category: Category, $group: EateryGroup) {
-    localesByGroup(category: $category, group: $group) {
-      id
-      name
-      description
-      category
-      groups
-      uri
-    }
-  }
-`;
-
 const props = ({ data }) => {
   const { loading, error, localesByGroup } = data;
 
@@ -37,4 +21,6 @@ const options = ({ navigation }) => {
   };
 };
 
-export default graphql(query, { props, options });
+const config = { props, options };
+
+export default config;

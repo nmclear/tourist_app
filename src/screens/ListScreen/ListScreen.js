@@ -1,34 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
 import LocaleList from '../../components/LocaleList';
 
-// import getEateriesByGroupQuery from '../../graphql/queries/eateries/get_eateries_by_group';
-// import getLocalesByGroup from '../../graphql/queries/get_locales_by_group';
+const ListScreen = (props) => {
+  const {
+    navigation, error, loading, locales,
+  } = props;
 
-class LocaleScreen extends Component {
-  // static navigationOptions = ({ navigation }) => ({
-  //   title: navigation.getParam('title'),
-  // });
+  if (error) return <View />;
+  if (loading) return <View />;
 
-  render() {
-    const {
-      navigation, error, loading, locales,
-    } = this.props;
+  return (
+    <View style={{ flex: 1 }}>
+      <LocaleList locales={locales} navigation={navigation} />
+    </View>
+  );
+};
 
-    // console.log(navigation);
-
-    if (error) return <View />;
-    if (loading) return <View />;
-
-    return (
-      <View style={{ flex: 1 }}>
-        <LocaleList locales={locales} navigation={navigation} />
-      </View>
-    );
-  }
-}
-
-export default LocaleScreen;
-// export default getEateriesByGroupQuery(LocaleScreen);
-// export default getLocalesByGroup(LocaleScreen);
+export default ListScreen;
