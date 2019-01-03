@@ -8,6 +8,8 @@ import IconTextBtn from '../components/Buttons/IconTextBtn';
 
 import IconBtn from '../components/Buttons/IconBtn';
 
+import UberBtn from '../components/Buttons/UberBtn';
+
 import {
   morningIcons,
   noonIcons,
@@ -15,6 +17,19 @@ import {
   nightIcons,
   lateNightIcons,
 } from '../constants/icons';
+
+// const testUberLocation = {
+//   address: '627 Sleepy Hollow Ln',
+//   city: 'Laguna Beach',
+//   state: 'CA',
+//   zipcode: '92651',
+//   coordinate: {
+//     latitude: 33.53846,
+//     longitude: -117.78114,
+//   },
+// };
+
+// <UberBtn location={testUberLocation} name="The Deck" />
 
 const styles = StyleSheet.create({
   container: {
@@ -117,6 +132,7 @@ class HomeScreen extends Component {
         >
           <View style={iconContainer}>{this.renderModalIcons(icons)}</View>
         </CardModal>
+
         <LocaleMap followUserLocation={followUserLocation} />
       </View>
     );

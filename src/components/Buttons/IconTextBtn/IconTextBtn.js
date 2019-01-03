@@ -16,12 +16,14 @@ const styles = StyleSheet.create({
 
 const IconWithText = (props) => {
   const {
-    name, onPress, label, type, color, size, style, labelStyle,
+    name, onPress, label, type, color, size, style, labelStyle, raised, reverse,
   } = props;
   const { container, textStyle } = styles;
   return (
     <TouchableOpacity style={[container, style]} onPress={onPress}>
       <Icon
+        raised={raised}
+        reverse={reverse}
         name={name}
         type={type || 'material'}
         color={color || Colors.iconDefault}

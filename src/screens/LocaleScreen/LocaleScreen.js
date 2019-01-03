@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import {
+  ScrollView, View, Text, FlatList,
+} from 'react-native';
 
-import { Badge } from 'react-native-elements';
+import { Badge, Icon } from 'react-native-elements';
 
-import getDayOfWeek from '../../helpers/get_day_of_week';
+import { getDayOfWeek, formatPhoneNumber } from '../../helpers';
 
 import TilePageHeader from '../../components/TilePageHeader';
 import ContactBar from '../../components/ContactBar';
 import OpenTableBtn from '../../components/Buttons/OpenTableBtn';
 import SingleMarkerMap from '../../components/SingleMarkerMap';
+import TruncatedText from '../../components/TruncatedText';
+import PageDivider from '../../components/PageDivider';
+import IconTextRow from '../../components/IconTextRow';
+
+import UberBtn from '../../components/Buttons/UberBtn';
+import GroupBadge from '../../components/GroupBadge';
 
 import styles from './styles';
 
@@ -21,39 +29,12 @@ class LocaleScreen extends Component {
     },
   };
 
-  renderGroupBadges = groups => groups.map(group => (
-    <Badge
-      key={group}
-      textStyle={{ color: '#fff' }}
-      containerStyle={{
-        // flex: 1,
-        backgroundColor: '#5AC8FA',
-        flexDirection: 'row',
-        paddingHorizontal: 10,
-        paddingVertical: 10,
-        minWidth: 70,
-        marginHorizontal: 20,
-      }}
-    >
-      <Text style={{ color: '#fff' }}>{group}</Text>
-    </Badge>
-  ));
-
-  renderHours = (hours) => {
-    const { open, close } = hours[getDayOfWeek()];
-    return (
-      <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-        <Text>
-          Hours:
-          {' '}
-          {open}
-          {' '}
--
-          {' '}
-          {close}
-        </Text>
-      </View>
-    );
+  formatTodaysHours = (hours) => {
+    const day = getDayOfWeek();
+    const { open, close } = hours[day];
+    const hour = `${day} Hours: ${open} - ${close}`;
+    // return <Text>{hour}</Text>;
+    return hour;
   };
 
   render() {
@@ -69,9 +50,16 @@ class LocaleScreen extends Component {
       id, uri, name, description, location, contact, groups, category,
     } = locale;
 
+    const formattedGroups = groups.map(group => ({
+      key: group,
+      name: group.replace('_', ' '),
+    }));
+
     const {
       phone, email, website, weekdayHours, opentable,
     } = contact;
+
+    const todayHours = this.formatTodaysHours(weekdayHours);
 
     const {
       address, city, state, zipcode, coordinate,
@@ -91,26 +79,28 @@ class LocaleScreen extends Component {
           <View style={textBox}>
             <Text style={headerStyle}>{`About ${name}`}</Text>
 
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-around',
-                alignItems: 'flex-start',
-                marginBottom: 10,
-              }}
-            >
-              {this.renderGroupBadges(groups)}
-            </View>
+            <FlatList
+              horizontal
+              data={formattedGroups}
+              renderItem={({ item }) => <GroupBadge key={item.key} group={item.name} />}
+              showsHorizontalScrollIndicator={false}
+              style={{ marginVertical: 5 }}
+              contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+            />
 
-            <Text style={descrStyle}>{description}</Text>
+            <TruncatedText textStyle={descrStyle} numberOfLines={5}>
+              {description}
+            </TruncatedText>
           </View>
-          {opentable && <OpenTableBtn link={opentable} />}
 
           <View>
-            {weekdayHours && this.renderHours(weekdayHours)}
-            <Text style={{ textAlign: 'center', marginVertical: 10 }}>
-              {`${address} ${city}, ${state} ${zipcode}`}
-            </Text>
+            <PageDivider text="Location" />
+
+            <IconTextRow
+              iconName="location-pin"
+              iconType="simple-line-icon"
+              text={`${address} ${city}, ${state} ${zipcode}`}
+            />
             <SingleMarkerMap
               scrollable={false}
               zoomable={false}
@@ -118,6 +108,33 @@ class LocaleScreen extends Component {
               coordinate={coordinate}
             />
           </View>
+          <PageDivider text="Details" />
+          <View style={{ marginBottom: 5 }}>
+            {phone && (
+              <IconTextRow
+                iconName="phone"
+                iconType="simple-line-icon"
+                text={formatPhoneNumber(phone)}
+              />
+            )}
+            {weekdayHours && (
+              <IconTextRow iconName="clock" iconType="simple-line-icon" text={todayHours} />
+            )}
+            {website && (
+              <IconTextRow
+                iconName="screen-smartphone"
+                iconType="simple-line-icon"
+                text={website}
+              />
+            )}
+            {email && <IconTextRow iconName="envelope" iconType="simple-line-icon" text={email} />}
+          </View>
+          {opentable && (
+            <View style={{ marginBottom: 5 }}>
+              <OpenTableBtn link={opentable} />
+            </View>
+          )}
+          <UberBtn name={name} location={location} />
         </ScrollView>
       </View>
     );

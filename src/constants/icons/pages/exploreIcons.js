@@ -24,14 +24,14 @@ export default [
     // SHOULD ADD TO NATURE TOO
   },
   {
-    key: 'BEACH',
+    key: 'BEACHES',
     name: 'beach',
     type: 'material-community',
     label: 'Beaches',
     category: NATURE,
   },
   {
-    key: 'LAKE',
+    key: 'LAKES',
     name: 'waves',
     type: 'material-community',
     label: 'Lakes',

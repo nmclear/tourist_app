@@ -22,6 +22,9 @@ class IconScreen extends Component {
     const onPress = () => navigation.navigate('LocaleList', { title: label, group: key, category });
     return (
       <IconTextBtn
+        // raised
+        // reverse
+        // size={28}
         name={name}
         type={type}
         color="#616D7E"
