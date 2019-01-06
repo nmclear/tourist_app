@@ -19,7 +19,7 @@ export default StyleSheet.create({
   headerStyle: {
     textAlign: 'center',
     marginBottom: 10,
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
   },
 });

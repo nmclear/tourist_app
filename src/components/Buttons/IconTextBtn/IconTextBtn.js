@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     // flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 9,
+    paddingVertical: 5,
   },
   textStyle: {},
 });

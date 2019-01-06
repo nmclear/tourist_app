@@ -9,6 +9,7 @@ import IconTextBtn from '../components/Buttons/IconTextBtn';
 import IconBtn from '../components/Buttons/IconBtn';
 
 import UberBtn from '../components/Buttons/UberBtn';
+import LyftBtn from '../components/Buttons/LyftBtn';
 
 import {
   morningIcons,
@@ -18,16 +19,16 @@ import {
   lateNightIcons,
 } from '../constants/icons';
 
-// const testUberLocation = {
-//   address: '627 Sleepy Hollow Ln',
-//   city: 'Laguna Beach',
-//   state: 'CA',
-//   zipcode: '92651',
-//   coordinate: {
-//     latitude: 33.53846,
-//     longitude: -117.78114,
-//   },
-// };
+const testUberLocation = {
+  address: '627 Sleepy Hollow Ln',
+  city: 'Laguna Beach',
+  state: 'CA',
+  zipcode: '92651',
+  coordinate: {
+    latitude: 33.53846,
+    longitude: -117.78114,
+  },
+};
 
 // <UberBtn location={testUberLocation} name="The Deck" />
 
@@ -134,6 +135,8 @@ class HomeScreen extends Component {
         </CardModal>
 
         <LocaleMap followUserLocation={followUserLocation} />
+        <UberBtn location={testUberLocation} name="The Deck" />
+        <LyftBtn location={testUberLocation} name="The Deck" />
       </View>
     );
   }

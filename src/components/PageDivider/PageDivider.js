@@ -23,7 +23,7 @@ const PageDivider = (props) => {
   const { color, text } = props;
   const { container, textStyle } = styles;
   return (
-    <View style={container}>
+    <View style={[container, { backgroundColor: color || '#E1E1E1' }]}>
       <Text style={textStyle}>{text}</Text>
     </View>
   );

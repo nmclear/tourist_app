@@ -1,4 +1,4 @@
-import { string, func } from 'prop-types';
+import { string, func, bool } from 'prop-types';
 import { ViewPropTypes } from 'react-native';
 
 export const propTypes = {
@@ -10,10 +10,12 @@ export const propTypes = {
   titleStyle: ViewPropTypes.style,
   subtitleStyle: ViewPropTypes.style,
   cardColor: string,
+  rounded: bool,
 };
 
 export const defaultProps = {
   cardColor: 'white',
   titleStyle: {},
   subtitleStyle: {},
+  rounded: false,
 };

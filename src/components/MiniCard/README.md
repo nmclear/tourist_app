@@ -9,6 +9,7 @@
 
 ## Props
 
+- rounded (Boolean) - adds rounded corners via borderRadius of 25.
 - id (required - String) - for use as component key
 - title (required - String)
 - subtitle (required - String)

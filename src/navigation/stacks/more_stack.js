@@ -7,6 +7,7 @@ import icons from '../../constants/icons/pages/moreIcons';
 import TabBarIcon from '../../components/TabBarIcon';
 
 import { LocaleListRoute, LocalePageRoute } from './routes';
+import headerTitleStyle from './styles/header_title_style';
 
 const MoreStack = createStackNavigator({
   More: {
@@ -14,6 +15,7 @@ const MoreStack = createStackNavigator({
     navigationOptions: () => ({
       title: 'More',
       headerBackTitle: null,
+      headerTitleStyle,
     }),
   },
   LocaleList: LocaleListRoute,

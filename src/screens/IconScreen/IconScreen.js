@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
 import Layout from '../../constants/Layout';
 import formatData from '../../helpers/format_flat_list_data';
@@ -8,7 +9,20 @@ import IconTextBtn from '../../components/Buttons/IconTextBtn';
 const NUM_COL = 3;
 
 class IconScreen extends Component {
-  renderIcons = ({ item }) => {
+  getAnimationByCol = (column) => {
+    switch (column) {
+      case 1:
+        return 'fadeInDownBig';
+      case 2:
+        return 'fadeInUpBig';
+      case 3:
+        return 'fadeInDownBig';
+      default:
+        return 'fadeIn';
+    }
+  };
+
+  renderIcons = (item, index) => {
     const { navigation } = this.props;
 
     const { itemStyle, invisibleItem } = styles;
@@ -16,22 +30,24 @@ class IconScreen extends Component {
       return <View style={[itemStyle, invisibleItem]} />;
     }
     const {
-      name, label, type, key, category,
+      name, label, type, key, category, color,
     } = item;
-
+    const iconCol = (index % NUM_COL) + 1;
     const onPress = () => navigation.navigate('LocaleList', { title: label, group: key, category });
     return (
-      <IconTextBtn
-        // raised
-        // reverse
-        // size={28}
-        name={name}
-        type={type}
-        color="#616D7E"
-        onPress={onPress}
-        label={label}
-        style={{ itemStyle }}
-      />
+      <Animatable.View animation={this.getAnimationByCol(iconCol)} style={{ flex: 1 }}>
+        <IconTextBtn
+          raised
+          reverse
+          size={28}
+          name={name}
+          type={type}
+          color={color || '#FFCC22'}
+          onPress={onPress}
+          label={label}
+          style={{ itemStyle }}
+        />
+      </Animatable.View>
     );
   };
 
@@ -44,7 +60,7 @@ class IconScreen extends Component {
         <FlatList
           style={listStyle}
           data={formatData(icons, NUM_COL)}
-          renderItem={item => this.renderIcons(item)}
+          renderItem={({ item, index }) => this.renderIcons(item, index)}
           numColumns={NUM_COL}
         />
       </View>
@@ -58,7 +74,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   listStyle: {
-    paddingTop: 8,
     marginHorizontal: 1,
     paddingHorizontal: 5,
   },

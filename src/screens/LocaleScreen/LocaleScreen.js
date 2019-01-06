@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import {
-  ScrollView, View, Text, FlatList,
+  ScrollView, View, Text, FlatList, Image,
 } from 'react-native';
-
-import { Badge, Icon } from 'react-native-elements';
+import { WebBrowser } from 'expo';
+import { SocialIcon } from 'react-native-elements';
 
 import { getDayOfWeek, formatPhoneNumber } from '../../helpers';
 
 import TilePageHeader from '../../components/TilePageHeader';
+// <TilePageHeader uri={uri} title={name} caption={category} height={160} />
+
 import ContactBar from '../../components/ContactBar';
 import OpenTableBtn from '../../components/Buttons/OpenTableBtn';
 import SingleMarkerMap from '../../components/SingleMarkerMap';
@@ -16,36 +18,38 @@ import PageDivider from '../../components/PageDivider';
 import IconTextRow from '../../components/IconTextRow';
 
 import UberBtn from '../../components/Buttons/UberBtn';
+import LyftBtn from '../../components/Buttons/LyftBtn';
+import MapBtn from '../../components/Buttons/MapBtn';
+
 import GroupBadge from '../../components/GroupBadge';
+
+import FullMapModal from '../../components/FullMapModal';
+
+import Layout from '../../constants/Layout';
 
 import styles from './styles';
 
 class LocaleScreen extends Component {
-  static navigationOptions = {
-    headerTransparent: true,
-    headerTintColor: '#fff',
-    headerStyle: {
-      borderBottomWidth: 0,
-    },
+  state = {
+    mapModalVisible: false,
   };
 
   formatTodaysHours = (hours) => {
     const day = getDayOfWeek();
     const { open, close } = hours[day];
-    const hour = `${day} Hours: ${open} - ${close}`;
-    // return <Text>{hour}</Text>;
-    return hour;
+    return `${day} Hours: ${open} - ${close}`;
   };
 
-  render() {
-    const { navigation } = this.props;
-    // const locale = navigation.getParam('id');
+  openModal = () => this.setState({ mapModalVisible: true });
 
+  closeModal = () => this.setState({ mapModalVisible: false });
+
+  render() {
     const { error, loading, locale } = this.props;
 
     if (error) return <View />;
     if (loading) return <View />;
-
+    const { mapModalVisible } = this.state;
     const {
       id, uri, name, description, location, contact, groups, category,
     } = locale;
@@ -59,8 +63,6 @@ class LocaleScreen extends Component {
       phone, email, website, weekdayHours, opentable,
     } = contact;
 
-    const todayHours = this.formatTodaysHours(weekdayHours);
-
     const {
       address, city, state, zipcode, coordinate,
     } = location;
@@ -68,26 +70,30 @@ class LocaleScreen extends Component {
     const {
       container, textBox, descrStyle, headerStyle,
     } = styles;
-
+    // <View>
+    //       <ContactBar phone={phone} coordinate={coordinate} website={website} />
+    //     </View>
     return (
       <View style={container} key={id}>
-        <View>
-          <TilePageHeader uri={uri} title={name} caption={category} height={160} />
-          <ContactBar phone={phone} coordinate={coordinate} website={website} />
-        </View>
-        <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}>
-          <View style={textBox}>
-            <Text style={headerStyle}>{`About ${name}`}</Text>
-
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}
+          stickyHeaderIndices={[2]}
+        >
+          <Image source={{ uri }} style={{ height: 180, width: Layout.window.width }} />
+          <View style={[textBox, { paddingBottom: 0 }]}>
+            <Text style={headerStyle}>{name}</Text>
+          </View>
+          <View style={{ backgroundColor: 'white', paddingBottom: 5 }}>
             <FlatList
               horizontal
               data={formattedGroups}
               renderItem={({ item }) => <GroupBadge key={item.key} group={item.name} />}
               showsHorizontalScrollIndicator={false}
-              style={{ marginVertical: 5 }}
+              // style={{ marginVertical: 5 }}
               contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
             />
-
+          </View>
+          <View style={[textBox, { paddingTop: 5 }]}>
             <TruncatedText textStyle={descrStyle} numberOfLines={5}>
               {description}
             </TruncatedText>
@@ -106,8 +112,29 @@ class LocaleScreen extends Component {
               zoomable={false}
               markerName={name}
               coordinate={coordinate}
+              onPress={this.openModal}
+            />
+            <FullMapModal
+              markerName={name}
+              coordinate={coordinate}
+              visible={mapModalVisible}
+              onClose={this.closeModal}
             />
           </View>
+          <PageDivider text="How to get There" />
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              paddingVertical: 7,
+              paddingHorizontal: 20,
+            }}
+          >
+            <UberBtn name={name} location={location} />
+            <MapBtn coordinate={coordinate} color="#1fbad6" />
+            <LyftBtn name={name} location={location} />
+          </View>
+
           <PageDivider text="Details" />
           <View style={{ marginBottom: 5 }}>
             {phone && (
@@ -118,7 +145,11 @@ class LocaleScreen extends Component {
               />
             )}
             {weekdayHours && (
-              <IconTextRow iconName="clock" iconType="simple-line-icon" text={todayHours} />
+              <IconTextRow
+                iconName="clock"
+                iconType="simple-line-icon"
+                text={this.formatTodaysHours(weekdayHours)}
+              />
             )}
             {website && (
               <IconTextRow
@@ -134,7 +165,36 @@ class LocaleScreen extends Component {
               <OpenTableBtn link={opentable} />
             </View>
           )}
-          <UberBtn name={name} location={location} />
+          <PageDivider text="Social" />
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-around',
+              paddingVertical: 7,
+              paddingHorizontal: 20,
+            }}
+          >
+            <SocialIcon
+              iconSize={35}
+              raised
+              type="facebook"
+              onPress={() => WebBrowser.openBrowserAsync(website)}
+            />
+            <SocialIcon
+              iconSize={35}
+              raised
+              type="twitter"
+              onPress={() => WebBrowser.openBrowserAsync(website)}
+            />
+            <SocialIcon
+              iconSize={35}
+              raised
+              type="instagram"
+              onPress={() => WebBrowser.openBrowserAsync(website)}
+            />
+          </View>
         </ScrollView>
       </View>
     );

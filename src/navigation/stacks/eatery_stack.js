@@ -7,6 +7,7 @@ import icons from '../../constants/icons/pages/eateryIcons';
 import TabBarIcon from '../../components/TabBarIcon';
 
 import { LocaleListRoute, LocalePageRoute } from './routes';
+import headerTitleStyle from './styles/header_title_style';
 
 const EateryStack = createStackNavigator({
   Eateries: {
@@ -14,6 +15,7 @@ const EateryStack = createStackNavigator({
     navigationOptions: () => ({
       title: 'Restaurants',
       headerBackTitle: null,
+      headerTitleStyle,
     }),
   },
   LocaleList: LocaleListRoute,

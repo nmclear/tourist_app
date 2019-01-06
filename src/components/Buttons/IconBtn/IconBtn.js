@@ -11,14 +11,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const HomeIconBar = (props) => {
+const IconBtn = (props) => {
   const {
-    name, type, color, style, onPress, size,
+    name, type, color, style, onPress, size, raised, reverse,
   } = props;
   const { container } = styles;
   return (
     <TouchableOpacity style={[container, style]} onPress={onPress}>
       <Icon
+        raised={raised}
+        reverse={reverse}
         name={name}
         type={type || 'material'}
         color={color || Colors.tabIconDefault}
@@ -28,4 +30,4 @@ const HomeIconBar = (props) => {
   );
 };
 
-export default HomeIconBar;
+export default IconBtn;

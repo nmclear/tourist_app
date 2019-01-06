@@ -5,7 +5,7 @@ import { zoomedDelta } from '../../constants/CoordDelta';
 
 const SingleMarkerMap = (props) => {
   const {
-    markerName, coordinate, mapHeight, zoomable, scrollable,
+    markerName, coordinate, mapHeight, zoomable, scrollable, onPress,
   } = props;
   return (
     <MapView
@@ -17,6 +17,7 @@ const SingleMarkerMap = (props) => {
       loadingEnabled
       showsUserLocation
       paddingAdjustmentBehavior="automatic"
+      onPress={onPress}
     >
       <MapView.Marker coordinate={coordinate} title={markerName} />
     </MapView>

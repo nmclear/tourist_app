@@ -6,14 +6,22 @@ import styles from './styles';
 
 const MiniCard = (props) => {
   const {
-    id, title, subtitle, uri, onPress, titleStyle, subtitleStyle, cardColor,
+    id,
+    title,
+    subtitle,
+    uri,
+    onPress,
+    titleStyle,
+    subtitleStyle,
+    cardColor,
+    rounded,
   } = props;
   const { container, textContainer } = styles;
 
   return (
     <TouchableOpacity
       key={id}
-      style={[container, { backgroundColor: cardColor }]}
+      style={[container, { backgroundColor: cardColor, borderRadius: rounded ? 25 : 0 }]}
       onPress={onPress}
     >
       <Avatar large rounded source={{ uri }} activeOpacity={0.7} />

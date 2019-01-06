@@ -38,6 +38,14 @@ export default [
     category: NATURE,
   },
   {
+    key: 'MARINA',
+    name: Platform.OS === 'ios' ? 'ios-boat' : 'md-boat',
+    type: 'ionicon',
+    label: 'Marinas',
+    category: NATURE,
+    // CHECKED
+  },
+  {
     key: 'SKIING',
     name: 'snowflake',
     type: 'material-community',
@@ -101,8 +109,8 @@ export default [
   },
   {
     key: 'GYM',
-    name: 'dumbbell',
-    type: 'material-community',
+    name: Platform.OS === 'ios' ? 'ios-fitness' : 'md-fitness',
+    type: 'ionicon',
     label: 'Gyms',
     category: SPORT,
     // CHECKED
