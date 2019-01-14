@@ -1,37 +1,59 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  Text, TouchableOpacity, StyleSheet, ViewPropTypes,
+} from 'react-native';
 import { Icon } from 'react-native-elements';
+import {
+  string, func, number, bool,
+} from 'prop-types';
 import Colors from '../../../constants/Colors';
+
+const propTypes = {
+  name: string.isRequired,
+  label: string.isRequired,
+  onPress: func.isRequired,
+  color: string,
+  type: string,
+  size: number,
+  raised: bool,
+  reverse: bool,
+  labelStyle: ViewPropTypes.style,
+  style: ViewPropTypes.style,
+};
+
+const defaultProps = {
+  color: Colors.iconDefault,
+  type: 'material',
+  size: 40,
+  raised: false,
+  reverse: false,
+  labelStyle: {},
+  style: {},
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 5,
   },
-  textStyle: {},
 });
 
-const IconWithText = (props) => {
+const IconTextBtn = (props) => {
   const {
     name, onPress, label, type, color, size, style, labelStyle, raised, reverse,
   } = props;
-  const { container, textStyle } = styles;
+  const { container } = styles;
   return (
     <TouchableOpacity style={[container, style]} onPress={onPress}>
-      <Icon
-        raised={raised}
-        reverse={reverse}
-        name={name}
-        type={type || 'material'}
-        color={color || Colors.iconDefault}
-        size={size || 40}
-      />
-      <Text style={[textStyle, labelStyle || {}]}>{label}</Text>
+      <Icon raised={raised} reverse={reverse} name={name} type={type} color={color} size={size} />
+      <Text style={labelStyle}>{label}</Text>
     </TouchableOpacity>
   );
 };
 
-export default IconWithText;
+IconTextBtn.propTypes = propTypes;
+IconTextBtn.defaultProps = defaultProps;
+
+export default IconTextBtn;

@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-
+import { WebBrowser } from 'expo';
 import { HOTEL } from '../../categories';
 
 const category = HOTEL;
@@ -32,6 +32,9 @@ export default [
     type: 'material-community',
     label: 'Vacation Rentals',
     category,
+    onPress: () => WebBrowser.openBrowserAsync(
+      'https://www.vrbo.com/results?adultsCount=4&petIncluded=false&adults=4&children=0&infantsCount=0&pets=false&q=Traverse%20City%2C%20MI%2C%20USA',
+    ),
   },
   {
     key: 'AIR BNB',
@@ -39,6 +42,9 @@ export default [
     type: 'ionicon',
     label: 'Air BnB',
     category,
+    onPress: () => WebBrowser.openBrowserAsync(
+      'https://www.airbnb.com/s/Traverse-City--MI--United-States/homes?query=Traverse%20City%2C%20MI%2C%20United%20States&adults=4&children=0&infants=0&guests=4&place_id=ChIJ3Sna17IyHogRIVZ0Pz_cv0c&refinement_paths%5B%5D=%2Fhomes&toddlers=0&allow_override%5B%5D=&s_tag=sRmI58xl',
+    ),
   },
   {
     key: 'CASINO',

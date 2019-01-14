@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import {
+  StyleSheet, View, TouchableOpacity, Text,
+} from 'react-native';
 import { Icon } from 'react-native-elements';
 
 const styles = StyleSheet.create({
@@ -11,17 +13,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-// `${address} ${city}, ${state} ${zipcode}`
+
 const IconTextRow = (props) => {
   const {
-    color, iconName, iconType, text,
+    color, iconName, iconType, text, onPress,
   } = props;
   const { container } = styles;
+
+  const textComponent = <Text style={{ marginLeft: 7, fontSize: 14 }}>{text}</Text>;
 
   return (
     <View style={container}>
       <Icon name={iconName} type={iconType} size={16} color="black" />
-      <Text style={{ marginLeft: 7, fontSize: 14 }}>{text}</Text>
+      {onPress ? (
+        <TouchableOpacity onPress={onPress}>{textComponent}</TouchableOpacity>
+      ) : (
+        textComponent
+      )}
     </View>
   );
 };

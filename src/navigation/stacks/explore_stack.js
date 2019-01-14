@@ -8,6 +8,7 @@ import TabBarIcon from '../../components/TabBarIcon';
 
 import { LocaleListRoute, LocalePageRoute } from './routes';
 import headerTitleStyle from './styles/header_title_style';
+import Colors from '../../constants/Colors';
 
 const ExploreStack = createStackNavigator({
   Explore: {
@@ -16,6 +17,7 @@ const ExploreStack = createStackNavigator({
       title: 'Explore',
       headerBackTitle: null,
       headerTitleStyle,
+      headerTintColor: Colors.headerTintColor,
     }),
   },
   LocaleList: LocaleListRoute,

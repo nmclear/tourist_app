@@ -1,4 +1,5 @@
 import { Platform } from 'react-native';
+import { WebBrowser } from 'expo';
 
 import {
   TRANSPORTATION, SPORT, ENTERTAINMENT, NATURE, EATERY, LANDMARK,
@@ -10,22 +11,23 @@ export default [
     name: Platform.OS === 'ios' ? 'ios-calendar' : 'md-calendar',
     type: 'ionicon',
     label: 'Events',
+    onPress: () => WebBrowser.openBrowserAsync('https://www.traversecity.com/events/'),
   },
   {
     key: 'PARKING',
     name: 'parking',
     type: 'material-community',
     label: 'Parking',
-    // CHECKED
-    // NEEDS SOLO SCREEN TOO
+    onPress: () => WebBrowser.openBrowserAsync('https://www.downtowntc.com/maps-parking/parking-map'),
   },
   {
     key: 'DIRECTIONS',
     name: 'routes',
     type: 'material-community',
     label: 'Directions',
-    // CHECKED
-    // NEEDS SOLO SCREEN TOO
+    onPress: () => WebBrowser.openBrowserAsync(
+      'https://www.traversecity.com/plan/about-traverse-city/driving-distances/',
+    ),
   },
   {
     key: 'WEATHER',

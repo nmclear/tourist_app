@@ -1,39 +1,42 @@
 import { Platform } from 'react-native';
+import {
+  SPORT, ENTERTAINMENT, NATURE, ALL, EATERY, LANDMARK,
+} from '../../categories';
 
 export default [
   {
-    key: '0',
+    key: 'AMERICAN',
     name: 'silverware-variant',
     type: 'material-community',
     label: 'Lunch',
-    onPress: () => {},
+    category: EATERY,
   },
   {
-    key: '1',
+    key: 'HIKING',
     name: 'terrain',
     type: 'material-community',
     label: 'Hiking',
-    onPress: () => {},
+    category: NATURE,
   },
   {
-    key: '2',
+    key: 'COMMONS',
     name: 'city-variant',
     type: 'material-community',
     label: 'Commons',
-    onPress: () => {},
+    category: LANDMARK,
   },
   {
-    key: '3',
+    key: 'PARKS',
     name: 'flower',
     type: 'material-community',
     label: 'Parks',
-    onPress: () => {},
+    category: NATURE,
   },
-//   {
-//     key: '4',
-//     name: Platform.OS === 'ios' ? 'ios-key' : 'md-key',
-//     type: 'ionicon',
-//     label: 'Air BnB',
-//     onPress: () => {},
-//   },
+  //   {
+  //     key: '4',
+  //     name: Platform.OS === 'ios' ? 'ios-key' : 'md-key',
+  //     type: 'ionicon',
+  //     label: 'Air BnB',
+  //     onPress: () => {},
+  //   },
 ];

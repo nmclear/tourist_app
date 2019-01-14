@@ -106,13 +106,23 @@ const ContactBar = (props) => {
   return (
     <View style={container}>
       <TouchableOpacity onPress={() => Linking.openURL(`tel:+1${phone}`)} style={[boxStyle]}>
-        <Icon name={Platform.OS === 'ios' ? 'ios-call' : 'md-call'} type="ionicon" containerStyle={{ marginRight: 10 }} size={22} />
+        <Icon
+          name={Platform.OS === 'ios' ? 'ios-call' : 'md-call'}
+          type="ionicon"
+          containerStyle={{ marginRight: 10 }}
+          size={22}
+        />
         <Text style={textStyle}>CALL</Text>
       </TouchableOpacity>
       <View style={rightBorder} />
       <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync(website)} style={boxStyle}>
-      <Icon name={Platform.OS === 'ios' ? 'ios-laptop' : 'md-laptop'} type="ionicon" containerStyle={{ marginRight: 10 }} size={22} />  
-      <Text style={textStyle}>WEBSITE</Text>
+        <Icon
+          name={Platform.OS === 'ios' ? 'ios-laptop' : 'md-laptop'}
+          type="ionicon"
+          containerStyle={{ marginRight: 10 }}
+          size={22}
+        />
+        <Text style={textStyle}>WEBSITE</Text>
       </TouchableOpacity>
     </View>
   );

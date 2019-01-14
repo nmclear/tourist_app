@@ -23,9 +23,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const ButtonMini = ({ title, onPress }) => {
+const MiniButton = ({ title, onPress }) => {
   const { textStyle, buttonStyle } = styles;
-  //   const { onPress, children } = props;
 
   return (
     <TouchableOpacity style={buttonStyle} onPress={onPress}>
@@ -34,4 +33,4 @@ const ButtonMini = ({ title, onPress }) => {
   );
 };
 
-export default ButtonMini;
+export default MiniButton;

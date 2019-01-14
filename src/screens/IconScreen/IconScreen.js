@@ -32,8 +32,18 @@ class IconScreen extends Component {
     const {
       name, label, type, key, category, color,
     } = item;
+
     const iconCol = (index % NUM_COL) + 1;
-    const onPress = () => navigation.navigate('LocaleList', { title: label, group: key, category });
+    let { onPress } = item;
+
+    if (key === 'WEATHER') {
+      onPress = () => navigation.navigate('WeatherApp');
+    } else if (key === 'ABOUT') {
+      onPress = () => navigation.navigate('AboutScreen');
+    } else if (!onPress) {
+      onPress = () => navigation.navigate('LocaleList', { title: label, group: key, category });
+    }
+
     return (
       <Animatable.View animation={this.getAnimationByCol(iconCol)} style={{ flex: 1 }}>
         <IconTextBtn
@@ -42,10 +52,11 @@ class IconScreen extends Component {
           size={28}
           name={name}
           type={type}
-          color={color || '#FFCC22'}
+          color={color || '#00b894'}
           onPress={onPress}
           label={label}
-          style={{ itemStyle }}
+          // style={{ itemStyle }}
+          style={itemStyle}
         />
       </Animatable.View>
     );

@@ -10,6 +10,7 @@ const query = gql`
     localesByCategory(category: $category) {
       id
       name
+      tagline
       description
       category
       groups
@@ -17,6 +18,13 @@ const query = gql`
         phone
         email
         website
+        menu
+        opentable
+        social {
+          facebook
+          instagram
+          twitter
+        }
         weekdayHours {
           ${getDayOfWeek()} {
             open

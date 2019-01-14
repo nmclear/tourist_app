@@ -1,21 +1,71 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react';
+import {
+  ActivityIndicator, View, FlatList, StyleSheet,
+} from 'react-native';
+import * as Animatable from 'react-native-animatable';
 
-import LocaleList from '../../components/LocaleList';
+import MiniCard from '../../components/MiniCard';
 
-const ListScreen = (props) => {
-  const {
-    navigation, error, loading, locales,
-  } = props;
+class ListScreen extends Component {
+  renderItem = (locale, index) => {
+    const { navigation } = this.props;
+    const {
+      id, name, uri, tagline,
+    } = locale;
 
-  if (error) return <View />;
-  if (loading) return <View />;
+    const onPress = () => navigation.navigate('LocalePage', { id, name });
+    return (
+      <Animatable.View
+        animation={index % 2 === 0 ? 'fadeInLeftBig' : 'fadeInRightBig'}
+        style={{ flex: 1 }}
+        duration={700}
+      >
+        <MiniCard
+          rounded
+          arrow
+          id={id}
+          title={name}
+          subtitle={tagline}
+          uri={uri}
+          onPress={onPress}
+        />
+      </Animatable.View>
+    );
+  };
 
-  return (
-    <View style={{ flex: 1 }}>
-      <LocaleList locales={locales} navigation={navigation} />
-    </View>
-  );
-};
+  render() {
+    const { error, loading, locales } = this.props;
+    const { container } = styles;
+
+    if (error) return <View style={container} />;
+
+    if (loading) {
+      return (
+        <View style={[container, { justifyContent: 'center' }]}>
+          <ActivityIndicator />
+        </View>
+      );
+    }
+
+    return (
+      <View style={container}>
+        <FlatList
+          data={locales}
+          renderItem={({ item, index }) => this.renderItem(item, index)}
+          keyExtractor={item => item.id.toString()}
+          initialNumToRender={10}
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // backgroundColor: '#dfe6e9',
+    backgroundColor: '#fdfdfd',
+  },
+});
 
 export default ListScreen;

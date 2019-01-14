@@ -1,30 +1,32 @@
+import { EATERY, HOTEL, TRANSPORTATION } from '../../categories';
+
 export default [
   {
-    key: '0',
+    key: 'LATE_NIGHT',
     name: 'owl',
     type: 'material-community',
     label: 'Food',
-    onPress: () => {},
+    category: EATERY,
   },
   {
-    key: '1',
+    key: 'NIGHT_LIFE',
     name: 'glass-cocktail',
     type: 'material-community',
     label: 'Nightlife',
-    onPress: () => {},
+    category: EATERY,
   },
   {
-    key: '2',
+    key: 'HOTEL',
     name: 'hotel',
     type: 'material-community',
     label: 'Hotels',
-    onPress: () => {},
+    category: HOTEL,
   },
   {
-    key: '3',
+    key: 'TAXI',
     name: 'taxi',
     type: 'material-community',
     label: 'Taxi',
-    onPress: () => {},
+    category: TRANSPORTATION,
   },
 ];

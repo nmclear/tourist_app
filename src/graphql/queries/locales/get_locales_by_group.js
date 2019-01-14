@@ -8,6 +8,7 @@ const query = gql`
     localesByGroup(category: $category, group: $group) {
       id
       name
+      tagline
       category
       groups
       uri

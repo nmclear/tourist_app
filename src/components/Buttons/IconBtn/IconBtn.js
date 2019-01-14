@@ -1,7 +1,30 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, ViewPropTypes } from 'react-native';
 import { Icon } from 'react-native-elements';
+import {
+  string, func, number, bool,
+} from 'prop-types';
 import Colors from '../../../constants/Colors';
+
+const propTypes = {
+  name: string.isRequired,
+  onPress: func.isRequired,
+  color: string,
+  type: string,
+  size: number,
+  raised: bool,
+  reverse: bool,
+  style: ViewPropTypes.style,
+};
+
+const defaultProps = {
+  color: Colors.tabIconDefault,
+  type: 'material',
+  size: 30,
+  raised: false,
+  reverse: false,
+  style: {},
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -18,16 +41,12 @@ const IconBtn = (props) => {
   const { container } = styles;
   return (
     <TouchableOpacity style={[container, style]} onPress={onPress}>
-      <Icon
-        raised={raised}
-        reverse={reverse}
-        name={name}
-        type={type || 'material'}
-        color={color || Colors.tabIconDefault}
-        size={size || 30}
-      />
+      <Icon raised={raised} reverse={reverse} name={name} type={type} color={color} size={size} />
     </TouchableOpacity>
   );
 };
+
+IconBtn.propTypes = propTypes;
+IconBtn.defaultProps = defaultProps;
 
 export default IconBtn;

@@ -4,9 +4,6 @@ import {
   SPORT, ENTERTAINMENT, NATURE, ALL, EATERY,
 } from '../../categories';
 
-// const SPORT = 'SPORT';
-// const ENTERTAINMENT = 'ENTERTAINMENT';
-
 export default [
   {
     key: 'BIKE',

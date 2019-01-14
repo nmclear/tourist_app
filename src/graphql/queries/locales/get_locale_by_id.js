@@ -11,6 +11,7 @@ query getLocaleById($id: ID!){
    
       id
       name
+      tagline
       description
       category
       groups
@@ -19,6 +20,12 @@ query getLocaleById($id: ID!){
         email
         website
         opentable
+        menu
+        social {
+          facebook
+          instagram
+          twitter
+        }
         weekdayHours {
           ${getDayOfWeek()} {
             open

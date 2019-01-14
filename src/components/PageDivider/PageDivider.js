@@ -1,32 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import { string } from 'prop-types';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingLeft: 20,
-    backgroundColor: '#E1E1E1',
-    height: 35,
-  },
-  textStyle: {
-    textTransform: 'uppercase',
-    fontSize: 12,
-    color: '#717171',
-    letterSpacing: 2,
-  },
-});
+import styles from './styles';
 
-const PageDivider = (props) => {
-  const { color, text } = props;
+const propTypes = {
+  color: string,
+  text: string.isRequired,
+  textColor: string,
+};
+
+const defaultProps = {
+  color: '#E1E1E1',
+  textColor: '#717171',
+};
+
+const PageDivider = ({ color, text, textColor }) => {
   const { container, textStyle } = styles;
   return (
-    <View style={[container, { backgroundColor: color || '#E1E1E1' }]}>
-      <Text style={textStyle}>{text}</Text>
+    <View style={[container, { backgroundColor: color }]}>
+      <Text style={[textStyle, { color: textColor }]}>{text}</Text>
     </View>
   );
 };
+
+PageDivider.propTypes = propTypes;
+PageDivider.defaultProps = defaultProps;
 
 export default PageDivider;

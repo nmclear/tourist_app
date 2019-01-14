@@ -1,39 +1,41 @@
 import { Platform } from 'react-native';
 
+import { ENTERTAINMENT, EATERY, TRANSPORTATION } from '../../categories';
+
 export default [
   {
-    key: '0',
+    key: 'STEAK',
     name: 'silverware-variant',
     type: 'material-community',
     label: 'Dinner',
-    onPress: () => {},
+    category: EATERY,
   },
   {
-    key: '1',
+    key: 'BAR',
     name: 'glass-cocktail',
     type: 'material-community',
     label: 'Nightlife',
-    onPress: () => {},
+    category: EATERY,
   },
   {
-    key: '2',
+    key: 'THEATER',
     name: 'ticket',
     type: 'material-community',
     label: 'Theater',
-    onPress: () => {},
+    category: ENTERTAINMENT,
   },
   {
-    key: '3',
+    key: 'TAXI',
     name: 'taxi',
     type: 'material-community',
     label: 'Taxi',
-    onPress: () => {},
+    category: TRANSPORTATION,
   },
-//   {
-//     key: '4',
-//     name: Platform.OS === 'ios' ? 'ios-key' : 'md-key',
-//     type: 'ionicon',
-//     label: 'Air BnB',
-//     onPress: () => {},
-//   },
+  //   {
+  //     key: '4',
+  //     name: Platform.OS === 'ios' ? 'ios-key' : 'md-key',
+  //     type: 'ionicon',
+  //     label: 'Air BnB',
+  //
+  //   },
 ];

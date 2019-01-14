@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapView } from 'expo';
+import { Platform } from 'react-native';
 
 import { zoomedDelta } from '../../constants/CoordDelta';
 
@@ -18,6 +19,7 @@ const SingleMarkerMap = (props) => {
       showsUserLocation
       paddingAdjustmentBehavior="automatic"
       onPress={onPress}
+      cacheEnabled={Platform.OS === 'android'}
     >
       <MapView.Marker coordinate={coordinate} title={markerName} />
     </MapView>

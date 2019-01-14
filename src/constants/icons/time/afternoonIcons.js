@@ -1,32 +1,34 @@
 import { Platform } from 'react-native';
+import { WebBrowser } from 'expo';
+import { EATERY, ENTERTAINMENT } from '../../categories';
 
 export default [
   {
-    key: '0',
+    key: 'AMERICAN',
     name: 'silverware-variant',
     type: 'material-community',
     label: 'Food',
-    onPress: () => {},
+    category: EATERY,
   },
   {
-    key: '1',
+    key: 'BAR',
     name: 'glass-cocktail',
     type: 'material-community',
     label: 'Happy Hour',
-    onPress: () => {},
+    category: EATERY,
   },
   {
-    key: '2',
+    key: 'SHOPPING',
     name: 'shopping',
     type: 'material-community',
     label: 'Shopping',
-    onPress: () => {},
+    category: ENTERTAINMENT,
   },
   {
-    key: '3',
+    key: 'EVENTS',
     name: Platform.OS === 'ios' ? 'ios-calendar' : 'md-calendar',
     type: 'ionicon',
     label: 'Events',
-    onPress: () => {},
+    onPress: () => WebBrowser.openBrowserAsync('https://www.traversecity.com/events/'),
   },
 ];
