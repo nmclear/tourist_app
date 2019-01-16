@@ -22,7 +22,9 @@ const SocialBar = ({ social }) => {
     <View style={container}>
       {facebook && (
         <FlexIconBtn
-          color="#3b5998"
+          // color="#3b5998"
+          color="#fff"
+          iconColor="#3b5998"
           name="facebook"
           type="material-community"
           onPress={() => WebBrowser.openBrowserAsync(facebook)}
@@ -30,7 +32,9 @@ const SocialBar = ({ social }) => {
       )}
       {twitter && (
         <FlexIconBtn
-          color="#1DA1F2"
+          // color="#1DA1F2"
+          color="#fff"
+          iconColor="#1DA1F2"
           name="twitter"
           type="material-community"
           onPress={() => WebBrowser.openBrowserAsync(twitter)}
@@ -38,7 +42,9 @@ const SocialBar = ({ social }) => {
       )}
       {instagram && (
         <FlexIconBtn
-          color="#c32aa3"
+          // color="#c32aa3"
+          color="#fff"
+          iconColor="#c32aa3"
           name="instagram"
           type="material-community"
           onPress={() => WebBrowser.openBrowserAsync(instagram)}

@@ -4,7 +4,8 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'white',
+    // backgroundColor: '#fdfdfd',
+    backgroundColor: '#fff',
     justifyContent: 'space-between',
   },
 
@@ -12,14 +13,8 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
   },
-  descrStyle: {
-    fontSize: 16,
-    textAlign: 'justify',
-  },
   headerStyle: {
     textAlign: 'center',
     marginBottom: 10,
-    fontSize: 22,
-    fontWeight: 'bold',
   },
 });

@@ -10,13 +10,15 @@ const propTypes = {
     longitude: number.isRequired,
   }).isRequired,
   color: string,
+  iconColor: string,
 };
 
 const defaultProps = {
   color: '#dfe6e9',
+  iconColor: '#fff',
 };
 
-const MapBtn = ({ coordinate, color }) => {
+const MapBtn = ({ coordinate, color, iconColor }) => {
   const { latitude, longitude } = coordinate;
 
   const link = Platform.select({
@@ -27,6 +29,7 @@ const MapBtn = ({ coordinate, color }) => {
   return (
     <FlexIconBtn
       color={color}
+      iconColor={iconColor}
       name="directions"
       type="material-community"
       onPress={() => Linking.openURL(link)}

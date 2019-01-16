@@ -7,7 +7,7 @@ import icons from '../../constants/icons/pages/hotelIcons';
 import TabBarIcon from '../../components/TabBarIcon';
 
 import { LocaleListRoute, LocalePageRoute } from './routes';
-import headerTitleStyle from './styles/header_title_style';
+import { tabBarOptions, headerTitleStyle } from './styles';
 import Colors from '../../constants/Colors';
 
 const HotelStack = createStackNavigator({
@@ -26,6 +26,7 @@ const HotelStack = createStackNavigator({
 
 HotelStack.navigationOptions = {
   tabBarLabel: 'Hotels',
+  tabBarOptions,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

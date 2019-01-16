@@ -66,7 +66,7 @@ const propTypes = {
 const defaultProps = {
   type: 'material',
   size: 28,
-  iconColor: 'white',
+  iconColor: '#fff',
 };
 
 const styles = StyleSheet.create({

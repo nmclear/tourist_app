@@ -4,7 +4,7 @@ import GroupBadge from '../../GroupBadge';
 
 const formatGroups = groups => groups.map(group => ({
   key: group,
-  name: group.replace('_', ''),
+  name: group.replace('_', ' '),
 }));
 
 const GroupsBar = ({ groups }) => (
@@ -15,7 +15,11 @@ const GroupsBar = ({ groups }) => (
       renderItem={({ item }) => <GroupBadge key={item.key} group={item.name} />}
       showsHorizontalScrollIndicator={false}
       // style={{ marginVertical: 5 }}
-      contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+      contentContainerStyle={{
+        flex: groups.length <= 3 ? 1 : 0,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
     />
   </View>
 );

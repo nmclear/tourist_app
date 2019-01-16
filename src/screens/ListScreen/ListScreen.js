@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  ActivityIndicator, View, FlatList, StyleSheet,
+  ActivityIndicator, View, FlatList, StyleSheet, Text,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
@@ -22,6 +22,7 @@ class ListScreen extends Component {
       >
         <MiniCard
           rounded
+          shadow
           arrow
           id={id}
           title={name}
@@ -54,6 +55,8 @@ class ListScreen extends Component {
           renderItem={({ item, index }) => this.renderItem(item, index)}
           keyExtractor={item => item.id.toString()}
           initialNumToRender={10}
+          ListEmptyComponent={<Text>Empty List</Text>}
+          contentContainerStyle={{ paddingBottom: 10 }}
         />
       </View>
     );

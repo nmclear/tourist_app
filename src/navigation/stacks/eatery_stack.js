@@ -7,7 +7,8 @@ import icons from '../../constants/icons/pages/eateryIcons';
 import TabBarIcon from '../../components/TabBarIcon';
 
 import { LocaleListRoute, LocalePageRoute } from './routes';
-import headerTitleStyle from './styles/header_title_style';
+// import headerTitleStyle from './styles/header_title_style';
+import { tabBarOptions, headerTitleStyle } from './styles';
 import Colors from '../../constants/Colors';
 
 const EateryStack = createStackNavigator({
@@ -26,6 +27,7 @@ const EateryStack = createStackNavigator({
 
 EateryStack.navigationOptions = {
   tabBarLabel: 'Restaurants',
+  tabBarOptions,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

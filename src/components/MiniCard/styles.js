@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
     paddingTop: 7,
     paddingBottom: 7,
     paddingLeft: 7,
+
+    borderColor: 'rgba(45, 52, 54, 0.17)',
+    borderStyle: 'solid',
+    borderWidth: 2,
   },
   leftGroup: {
     flexDirection: 'row',
@@ -21,13 +25,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 5,
   },
-  iosShadow: {
+  shadowStyle: {
     shadowColor: '#2d3436',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 0.5,
-    shadowRadius: 2,
-  },
-  androidShadow: {
+    shadowRadius: 1,
     elevation: 5,
   },
   arrowStyle: {

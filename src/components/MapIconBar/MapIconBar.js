@@ -17,7 +17,10 @@ const MapIconBar = (props) => {
   const { container } = styles;
   const { visible, onOpenPress, onUserLocationPress } = props;
   return (
-    <View style={[container, { display: visible }]}>
+    <View
+      // style={[container, { display: visible }]}
+      style={container}
+    >
       <IconBtn
         name={
           Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'md-information-circle-outline'

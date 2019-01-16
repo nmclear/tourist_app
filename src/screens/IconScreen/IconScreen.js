@@ -27,7 +27,7 @@ class IconScreen extends Component {
 
     const { itemStyle, invisibleItem } = styles;
     if (item.empty) {
-      return <View style={[itemStyle, invisibleItem]} />;
+      return <View style={[invisibleItem]} />;
     }
     const {
       name, label, type, key, category, color,
@@ -47,15 +47,14 @@ class IconScreen extends Component {
     return (
       <Animatable.View animation={this.getAnimationByCol(iconCol)} style={{ flex: 1 }}>
         <IconTextBtn
-          raised
-          reverse
-          size={28}
+          // reverse
+          // raised
+          size={40}
           name={name}
           type={type}
           color={color || '#00b894'}
           onPress={onPress}
           label={label}
-          // style={{ itemStyle }}
           style={itemStyle}
         />
       </Animatable.View>
@@ -63,16 +62,16 @@ class IconScreen extends Component {
   };
 
   render() {
-    const { container, listStyle } = styles;
+    const { container } = styles;
     const { icons } = this.props;
 
     return (
       <View style={container}>
         <FlatList
-          style={listStyle}
           data={formatData(icons, NUM_COL)}
           renderItem={({ item, index }) => this.renderIcons(item, index)}
           numColumns={NUM_COL}
+          contentContainerStyle={{ paddingVertical: 10 }}
         />
       </View>
     );
@@ -82,18 +81,36 @@ class IconScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fdfdfd',
+    paddingLeft: 12,
   },
-  listStyle: {
-    marginHorizontal: 1,
-    paddingHorizontal: 5,
+  ogStyle: {
+    paddingVertical: 3,
+    width: Layout.window.width / NUM_COL,
   },
   itemStyle: {
-    width: Layout.window.width / NUM_COL,
+    width: Layout.window.width / NUM_COL - 20,
+    height: Layout.window.width / NUM_COL - 20,
+    marginVertical: 7,
+    backgroundColor: '#fff',
+    borderRadius: 10,
+
+    shadowColor: '#b2bec3',
+    shadowOffset: { width: 1, height: 2 },
+    shadowOpacity: 0.6,
+    shadowRadius: 3,
+    elevation: 3,
+
+    borderColor: 'rgba(45, 52, 54, 0.1)',
+    borderStyle: 'solid',
+    borderWidth: 2,
   },
   invisibleItem: {
     backgroundColor: 'transparent',
-    width: Layout.window.width / NUM_COL,
+    // paddingVertical: 5,
+    marginVertical: 4,
+    height: Layout.window.width / NUM_COL - 20,
+    width: Layout.window.width / NUM_COL - 20,
   },
 });
 

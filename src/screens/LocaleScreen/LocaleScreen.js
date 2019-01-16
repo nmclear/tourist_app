@@ -10,9 +10,12 @@ import TilePageHeader from '../../components/TilePageHeader';
 import ContactBar from '../../components/ContactBar';
 import OpenTableBtn from '../../components/Buttons/OpenTableBtn';
 import FlexBtn from '../../components/Buttons/FlexBtn';
-import TruncatedText from '../../components/TruncatedText';
 import PageDivider from '../../components/PageDivider';
 import IconTextRow from '../../components/IconTextRow';
+
+import {
+  HeaderText, BodyText, TruncatedText, BtnText,
+} from '../../components/Texts';
 
 import { EATERY } from '../../constants/categories';
 
@@ -49,9 +52,7 @@ const LocaleScreen = ({ error, loading, locale }) => {
     address, city, state, zipcode, coordinate,
   } = location;
 
-  const {
-    container, textBox, descrStyle, headerStyle,
-  } = styles;
+  const { container, textBox, headerStyle } = styles;
   // <View>
   //       <ContactBar phone={phone} coordinate={coordinate} website={website} />
   //     </View>
@@ -64,15 +65,15 @@ const LocaleScreen = ({ error, loading, locale }) => {
       >
         {uri && <Image source={{ uri }} style={{ height: 180, width: Layout.window.width }} />}
 
-        <View style={[textBox, { paddingBottom: 0 }]}>
-          <Text style={headerStyle}>{name}</Text>
+        <View style={[textBox, { paddingTop: 10, paddingBottom: 0 }]}>
+          <HeaderText style={headerStyle}>{name}</HeaderText>
         </View>
 
         {groups && <GroupsBar groups={groups} />}
 
         {description && (
           <View style={[textBox, { paddingTop: 5 }]}>
-            <TruncatedText textStyle={descrStyle} numberOfLines={5}>
+            <TruncatedText textStyle={{ textAlign: 'justify' }} numberOfLines={5}>
               {description}
             </TruncatedText>
           </View>
@@ -106,15 +107,45 @@ const LocaleScreen = ({ error, loading, locale }) => {
             }}
           >
             {opentable && (
-              <FlexBtn color="#DA3743" onPress={() => WebBrowser.openBrowserAsync(opentable)}>
-                <Text style={{ color: '#fff', fontSize: 18, marginVertical: 3 }}>
-                  Reserve Table
-                </Text>
+              // <FlexBtn color="#DA3743" onPress={() => WebBrowser.openBrowserAsync(opentable)}>
+              //   <Text style={{ color: '#fff', fontSize: 18, marginVertical: 3 }}>
+              //     Reserve Table
+              //   </Text>
+              // </FlexBtn>
+              <FlexBtn
+                color="#fff"
+                onPress={() => WebBrowser.openBrowserAsync(opentable)}
+                style={{
+                  // shadowColor: '#2d3436',
+                  shadowOffset: { width: 1, height: 2 },
+                  // shadowOpacity: 0.6,
+                  shadowRadius: 2,
+                  borderColor: 'rgba(45, 52, 54, 0.2)',
+                  borderStyle: 'solid',
+                  borderWidth: 1,
+                }}
+              >
+                <BtnText style={{ marginVertical: 3, paddingHorizontal: 5 }}>Reserve Table</BtnText>
               </FlexBtn>
             )}
             {menu && (
-              <FlexBtn color="#DA3743" onPress={() => WebBrowser.openBrowserAsync(menu)}>
-                <Text style={{ color: '#fff', fontSize: 18, marginVertical: 3 }}>Explore Menu</Text>
+              // <FlexBtn color="#DA3743" onPress={() => WebBrowser.openBrowserAsync(menu)}>
+              //   <Text style={{ color: '#fff', fontSize: 18, marginVertical: 3 }}>Explore Menu</Text>
+              // </FlexBtn>
+              <FlexBtn
+                color="#fff"
+                onPress={() => WebBrowser.openBrowserAsync(menu)}
+                style={{
+                  // shadowColor: '#2d3436',
+                  shadowOffset: { width: 1, height: 2 },
+                  // shadowOpacity: 0.6,
+                  shadowRadius: 2,
+                  borderColor: 'rgba(45, 52, 54, 0.2)',
+                  borderStyle: 'solid',
+                  borderWidth: 1,
+                }}
+              >
+                <BtnText style={{ marginVertical: 3, paddingHorizontal: 5 }}>Explore Menu</BtnText>
               </FlexBtn>
             )}
           </View>

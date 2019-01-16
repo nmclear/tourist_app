@@ -11,6 +11,7 @@ export const propTypes = {
   subtitleStyle: ViewPropTypes.style,
   cardColor: string,
   rounded: bool,
+  shadow: bool,
   arrow: bool,
 };
 
@@ -18,6 +19,7 @@ export const defaultProps = {
   cardColor: 'white',
   titleStyle: {},
   subtitleStyle: {},
+  shadow: true,
   rounded: false,
   arrow: false,
 };

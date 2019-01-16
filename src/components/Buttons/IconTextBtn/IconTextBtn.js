@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 5,
+    // paddingVertical: 5,
   },
 });
 
@@ -48,7 +48,7 @@ const IconTextBtn = (props) => {
   return (
     <TouchableOpacity style={[container, style]} onPress={onPress}>
       <Icon raised={raised} reverse={reverse} name={name} type={type} color={color} size={size} />
-      <Text style={labelStyle}>{label}</Text>
+      <Text style={[{ textAlign: 'center' }, labelStyle]}>{label}</Text>
     </TouchableOpacity>
   );
 };

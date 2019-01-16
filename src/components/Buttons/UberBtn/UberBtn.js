@@ -39,7 +39,9 @@ const UberBtn = ({ name, location }) => {
 
   return (
     <FlexIconBtn
-      color="#09091a"
+      // color="#09091a"
+      color="#fff"
+      iconColor="#09091a"
       name="uber"
       type="material-community"
       onPress={() => Linking.openURL(link)}

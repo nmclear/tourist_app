@@ -21,7 +21,7 @@ const LocationBar = ({ name, location }) => {
   return (
     <View style={container}>
       <UberBtn name={name} location={location} />
-      <MapBtn coordinate={coordinate} color="#1fbad6" />
+      <MapBtn coordinate={coordinate} color="#fff" iconColor="#1fbad6" />
       <LyftBtn name={name} location={location} />
     </View>
   );

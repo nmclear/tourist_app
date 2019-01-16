@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
+import BodyText from '../BodyText';
 
 class TruncatedText extends Component {
   state = {
@@ -27,9 +28,9 @@ class TruncatedText extends Component {
         style={{ paddingTop: 3 }}
         onPress={() => this.setState({ showfullText: !showfullText })}
       >
-        <Text style={[{ color: '#007AFF', fontSize: 16 }, showMoreTextStyle]}>
+        <BodyText style={[{ color: '#007AFF', fontSize: 16 }, showMoreTextStyle]}>
           {showfullText ? 'Read Less...' : 'Read More...'}
-        </Text>
+        </BodyText>
       </TouchableOpacity>
     );
   };
@@ -41,13 +42,13 @@ class TruncatedText extends Component {
     const { showfullText, showReadMore } = this.state;
     return (
       <View style={containerStyle}>
-        <Text
+        <BodyText
           onLayout={this.getShowMoreStatus}
           style={textStyle}
           numberOfLines={showfullText ? 0 : numberOfLines}
         >
           {children}
-        </Text>
+        </BodyText>
         {showReadMore && this.renderShowMoreBtn()}
       </View>
     );

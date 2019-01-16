@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Badge } from 'react-native-elements';
 import { string } from 'prop-types';
-import Colors from '../../constants/Colors';
+import { BtnText } from '../Texts';
 
 const propTypes = {
   group: string.isRequired,
@@ -12,12 +12,13 @@ const styles = StyleSheet.create({
   containerStyle: {
     backgroundColor: 'white',
     flexDirection: 'row',
-    paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingHorizontal: 5,
+    paddingVertical: 6,
     minWidth: 70,
     marginHorizontal: 7,
     marginBottom: 2,
-    borderColor: '#2d3436',
+    // borderColor: '#2d3436',
+    borderColor: 'rgba(45, 52, 54, 0.6)',
     borderStyle: 'solid',
     borderWidth: 1,
   },
@@ -28,20 +29,13 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     elevation: 3,
   },
-
-  textStyle: {
-    // color: '#0984e3',
-    color: '#2d3436',
-
-    fontWeight: '600',
-  },
 });
 
 const GroupBadge = ({ group }) => {
-  const { containerStyle, textStyle, shadow } = styles;
+  const { containerStyle, shadow } = styles;
   return (
-    <Badge key={group} textStyle={{ color: '#fff' }} containerStyle={[containerStyle, shadow]}>
-      <Text style={textStyle}>{group}</Text>
+    <Badge key={group} containerStyle={[containerStyle, shadow]}>
+      <BtnText style={{ fontSize: 12 }}>{group}</BtnText>
     </Badge>
   );
 };

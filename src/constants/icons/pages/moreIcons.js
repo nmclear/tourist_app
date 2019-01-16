@@ -5,6 +5,26 @@ import {
   TRANSPORTATION, SPORT, ENTERTAINMENT, NATURE, EATERY, LANDMARK,
 } from '../../categories';
 
+import {
+  COFFEE,
+  FARMS,
+  BEACHES,
+  SHOPPING,
+  PARKING,
+  DIRECTIONS,
+  BUS,
+  SKIING,
+  GOLF,
+  COMMONS,
+  TOURS,
+  CAR_TRIPS,
+  TAXI,
+  LIGHTHOUSES,
+} from '../../types/group_types';
+
+// const color = '#fdcb6e';
+const color = 'rgba(253, 203, 110, 0.75)';
+
 export default [
   {
     key: 'EVENTS',
@@ -12,131 +32,142 @@ export default [
     type: 'ionicon',
     label: 'Events',
     onPress: () => WebBrowser.openBrowserAsync('https://www.traversecity.com/events/'),
+    color,
   },
   {
-    key: 'PARKING',
+    key: PARKING,
     name: 'parking',
     type: 'material-community',
     label: 'Parking',
     onPress: () => WebBrowser.openBrowserAsync('https://www.downtowntc.com/maps-parking/parking-map'),
+    color,
   },
   {
-    key: 'DIRECTIONS',
+    key: DIRECTIONS,
     name: 'routes',
     type: 'material-community',
     label: 'Directions',
     onPress: () => WebBrowser.openBrowserAsync(
       'https://www.traversecity.com/plan/about-traverse-city/driving-distances/',
     ),
+    color,
   },
   {
     key: 'WEATHER',
     name: Platform.OS === 'ios' ? 'ios-sunny' : 'md-sunny',
     type: 'ionicon',
     label: 'Weather',
+    color,
   },
   {
-    key: 'BUS',
+    key: BUS,
     name: Platform.OS === 'ios' ? 'ios-bus' : 'md-bus',
     type: 'ionicon',
     label: 'Bus',
-    category: TRANSPORTATION,
-    // CHECKED
-    // NEEDS SOLO SCREEN TOO
+    // category: TRANSPORTATION,
+    onPress: () => WebBrowser.openBrowserAsync('http://www.bata.net/'),
+    color,
   },
   {
     key: 'LAKE_INFO',
     name: 'waves',
     type: 'material-community',
     label: 'Lake Info',
+    onPress: () => WebBrowser.openBrowserAsync('https://www.ndbc.noaa.gov/station_page.php?station=gtrm4'),
+    color,
   },
   {
-    key: 'COFFEE',
+    key: COFFEE,
     name: 'coffee',
     type: 'material-community',
     label: 'Coffee',
     category: EATERY,
-    // CHECKED
+    color,
   },
   {
-    key: 'SKIING',
+    key: SKIING,
     name: Platform.OS === 'ios' ? 'ios-snow' : 'md-snow',
     type: 'ionicon',
     label: 'Skiing',
     category: SPORT,
-    // CHECKED
+    color,
   },
   {
-    key: 'GOLF',
+    key: GOLF,
     name: 'golf',
     type: 'material-community',
     label: 'Golf',
     category: SPORT,
-    // CHECKED
+    color,
   },
   {
-    key: 'COMMONS',
+    key: COMMONS,
     name: 'city-variant',
     type: 'material-community',
     label: 'Commons',
     category: LANDMARK,
-    // CHECKED
-    // SHOULD ADD TO LANDMARK TOO
+    color,
+    onPress: () => WebBrowser.openBrowserAsync('https://www.thevillagetc.com/'),
   },
   {
-    key: 'BEACHES',
+    key: BEACHES,
     name: 'beach',
     type: 'material-community',
     label: 'Beaches',
     category: NATURE,
+    color,
   },
   {
-    key: 'TOURS',
+    key: TOURS,
     name: 'van-passenger',
     type: 'material-community',
     label: 'Tours',
     category: TRANSPORTATION,
-    // CHECKED
-    // SHOULD ADD TO LANDMARK TOO
+    color,
+    onPress: () => WebBrowser.openBrowserAsync('https://wineandbeertours.com/'),
   },
   {
-    key: 'SHOPPING',
+    key: SHOPPING,
     name: Platform.OS === 'ios' ? 'shopping' : 'shopping',
     type: 'material-community',
     label: 'Shopping',
     category: ENTERTAINMENT,
-    // CHECKED
+    color,
   },
   {
-    key: 'CAR_TRIPS',
+    key: CAR_TRIPS,
     name: 'road-variant',
     type: 'material-community',
     label: 'Car Trips',
-    category: TRANSPORTATION,
-    // CHECKED
-    // SHOULD ADD TO TRANSPORTATION TOO
+    // category: TRANSPORTATION,
+    onPress: () => WebBrowser.openBrowserAsync(
+      'https://cdn.shopify.com/s/files/1/1230/6922/files/30_Roadtrip_M-22.pdf?13376906829999686641',
+    ),
+    color,
   },
   {
-    key: 'TAXI',
+    key: TAXI,
     name: 'taxi',
     type: 'material-community',
     label: 'Taxi',
     category: TRANSPORTATION,
-    // CHECKED
+    color,
   },
   {
-    key: 'FARMS',
+    key: FARMS,
     name: 'tractor',
     type: 'material-community',
     label: 'Farms',
-    category: LANDMARK,
+    category: NATURE,
+    color,
   },
   {
-    key: 'LIGHTHOUSES',
+    key: LIGHTHOUSES,
     name: 'lighthouse',
     type: 'material-community',
     label: 'Lighthouses',
     category: LANDMARK,
+    color,
   },
   {
     key: 'ABOUT',
@@ -144,5 +175,6 @@ export default [
       Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'md-information-circle-outline',
     type: 'ionicon',
     label: 'About',
+    color,
   },
 ];

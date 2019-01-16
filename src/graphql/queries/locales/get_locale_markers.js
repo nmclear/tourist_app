@@ -6,6 +6,8 @@ const query = gql`
     locales {
       id
       name
+      category
+      groups
       tagline
       location {
         address

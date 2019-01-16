@@ -37,7 +37,9 @@ const LyftBtn = ({ name, location }) => {
 
   return (
     <FlexIconBtn
-      color="#ff00bf"
+      // color="#ff00bf"
+      color="#fff"
+      iconColor="#ff00bf"
       name="lyft"
       type="material-community"
       onPress={() => Linking.openURL(link)}

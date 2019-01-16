@@ -48,25 +48,13 @@ class LocaleMap extends React.Component {
     const {
       currentLocation, mapLoaded, errorMessage, loadingLocation,
     } = this.state;
-    const { followUserLocation, markers, onMarkerPress } = this.props;
-    // if (loadingLocation) {
-    //   return (
-    //     <View>
-    //       <Text>Loading...</Text>
-    //     </View>
-    //   );
-
-    // if (!mapLoaded) {
-    //   return (
-    //     <View style={{ flex: 1, justifyContent: 'center' }}>
-    //       <ActivityIndicator size="large" />
-    //     </View>
-    //   );
-    // }
+    const {
+      followUserLocation, markers, onMarkerPress, mapContainerStyle,
+    } = this.props;
 
     return (
       <MapView
-        style={{ flex: 1 }}
+        style={[{ flexGrow: 1 }, mapContainerStyle]}
         region={!followUserLocation ? currentLocation : null}
         loadingEnabled
         showsUserLocation

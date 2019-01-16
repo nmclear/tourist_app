@@ -1,130 +1,164 @@
 import { Platform } from 'react-native';
+import { WebBrowser } from 'expo';
 
 import {
-  SPORT, ENTERTAINMENT, NATURE, ALL, EATERY,
+  SPORT, ENTERTAINMENT, NATURE, EATERY,
 } from '../../categories';
+
+import {
+  BIKE,
+  HIKING,
+  PARKS,
+  BEACHES,
+  BREWERY,
+  DOWNTOWN,
+  WINERY,
+  THEATER,
+  DOG_FRIENDLY,
+  NIGHT_LIFE,
+  ART,
+  GYM,
+  GOLF,
+  SKIING,
+  MARINA,
+  LAKES,
+} from '../../types/group_types';
+
+// const color = '#0984e3';
+const color = 'rgba(9, 132, 227, 0.75)';
 
 export default [
   {
-    key: 'BIKE',
+    key: BIKE,
     name: 'bike',
     type: 'material-community',
     label: 'Bike Trails',
     category: SPORT,
+    onPress: () => WebBrowser.openBrowserAsync('https://traversetrails.org/'),
+    color,
   },
   {
-    key: 'HIKING',
+    key: HIKING,
     name: 'terrain',
     type: 'material-community',
     label: 'Hiking',
     category: SPORT,
-    // SHOULD ADD TO NATURE TOO
+    onPress: () => WebBrowser.openBrowserAsync('https://www.traversecity.com/outdoors/hiking/'),
+    color,
   },
   {
-    key: 'BEACHES',
+    key: BEACHES,
     name: 'beach',
     type: 'material-community',
     label: 'Beaches',
     category: NATURE,
+    color,
   },
   {
-    key: 'LAKES',
+    key: LAKES,
     name: 'waves',
     type: 'material-community',
     label: 'Lakes',
     category: NATURE,
+    onPress: () => WebBrowser.openBrowserAsync(
+      'https://mynorth.com/2017/08/10-best-northern-michigan-inland-lakes/',
+    ),
+    color,
   },
   {
-    key: 'MARINA',
+    key: MARINA,
     name: Platform.OS === 'ios' ? 'ios-boat' : 'md-boat',
     type: 'ionicon',
     label: 'Marinas',
     category: NATURE,
-    // CHECKED
+    color,
   },
   {
-    key: 'SKIING',
+    key: SKIING,
     name: 'snowflake',
     type: 'material-community',
     label: 'Skiing',
     category: SPORT,
-    // CHECKED
+    color,
   },
   {
-    key: 'BREWERY',
+    key: BREWERY,
     name: Platform.OS === 'ios' ? 'ios-beer' : 'md-beer',
     type: 'ionicon',
     label: 'Breweries',
     category: EATERY,
-    // CHECKED
+    color,
   },
   {
-    key: 'WINERY',
+    key: WINERY,
     name: Platform.OS === 'ios' ? 'ios-wine' : 'md-wine',
     type: 'ionicon',
     label: 'Wineries',
-    category: ENTERTAINMENT,
-    // CHECKED
+    category: EATERY,
+    color,
   },
   {
-    key: 'THEATER',
+    key: THEATER,
     name: 'ticket',
     type: 'material-community',
     label: 'Theater',
     category: ENTERTAINMENT,
+    color,
   },
   {
-    key: 'PARKS',
+    key: PARKS,
     name: 'flower',
     type: 'material-community',
     label: 'Parks',
     category: NATURE,
+    color,
   },
   {
-    key: 'NIGHT_LIFE',
+    key: NIGHT_LIFE,
     name: 'glass-cocktail',
     type: 'material-community',
     label: 'Nightlife',
-    category: ENTERTAINMENT,
-    // CHECKED
+    category: EATERY,
+    color,
   },
   {
-    key: 'ART',
+    key: ART,
     name: Platform.OS === 'ios' ? 'ios-brush' : 'md-brush',
     type: 'ionicon',
     label: 'Art',
     category: ENTERTAINMENT,
-    // CHECKED
+    color,
   },
   {
-    key: 'GOLF',
+    key: GOLF,
     name: 'golf',
     type: 'material-community',
     label: 'Golf',
     category: SPORT,
-    // CHECKED
+    color,
   },
   {
-    key: 'GYM',
+    key: GYM,
     name: Platform.OS === 'ios' ? 'ios-fitness' : 'md-fitness',
     type: 'ionicon',
     label: 'Gyms',
     category: SPORT,
-    // CHECKED
+    color,
   },
   {
-    key: 'DOG_FRIENDLY',
+    key: DOG_FRIENDLY,
     name: Platform.OS === 'ios' ? 'ios-paw' : 'md-paw',
     type: 'ionicon',
     label: 'Dog Friendly',
-    category: ALL,
+    category: EATERY,
+    color,
   },
   {
-    key: 'DOWNTOWN',
+    key: DOWNTOWN,
     name: 'city',
     type: 'material-community',
     label: 'Downtown',
     category: ENTERTAINMENT,
-    // CHECKED
+    color,
   },
 ];

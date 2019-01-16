@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, ViewPropTypes } from 'react-native';
 
 import { string, func, node } from 'prop-types';
 
@@ -7,6 +7,11 @@ const propTypes = {
   color: string.isRequired,
   onPress: func.isRequired,
   children: node.isRequired,
+  style: ViewPropTypes.style,
+};
+
+const defaultProps = {
+  style: null,
 };
 
 const styles = StyleSheet.create({
@@ -18,26 +23,35 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  shadow: {
-    // shadowColor: '#2d3436',
+
     shadowColor: '#b2bec3',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 0.6,
     shadowRadius: 2,
     elevation: 3,
+
+    borderColor: 'rgba(45, 52, 54, 0.2)',
+    borderStyle: 'solid',
+    borderWidth: 1,
   },
 });
 
-const FlexBtn = ({ color, onPress, children }) => (
-  <TouchableOpacity
-    style={[styles.container, styles.shadow, { backgroundColor: color }]}
-    onPress={onPress}
-  >
-    {children}
-  </TouchableOpacity>
-);
+const FlexBtn = (props) => {
+  const {
+    color, onPress, children, style,
+  } = props;
+
+  return (
+    <TouchableOpacity
+      style={[styles.container, { backgroundColor: color }, style]}
+      onPress={onPress}
+    >
+      {children}
+    </TouchableOpacity>
+  );
+};
 
 FlexBtn.propTypes = propTypes;
+FlexBtn.defaultProps = defaultProps;
 
 export default FlexBtn;

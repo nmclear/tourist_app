@@ -4,11 +4,13 @@ import {
 } from 'react-native';
 import { Icon } from 'react-native-elements';
 
+import { BodyText } from '../Texts';
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     paddingLeft: 20,
-    marginVertical: 7,
+    marginVertical: 5,
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
@@ -20,7 +22,7 @@ const IconTextRow = (props) => {
   } = props;
   const { container } = styles;
 
-  const textComponent = <Text style={{ marginLeft: 7, fontSize: 14 }}>{text}</Text>;
+  const textComponent = <BodyText style={{ marginLeft: 6, fontSize: 14 }}>{text}</BodyText>;
 
   return (
     <View style={container}>
