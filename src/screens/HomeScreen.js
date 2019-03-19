@@ -6,15 +6,6 @@ import LocaleMap from '../components/LocaleMap';
 import IconTextBtn from '../components/Buttons/IconTextBtn';
 
 import GreetingModal from '../components/GreetingModal';
-// import LocaleScroll from '../components/LocaleScroll';
-
-// import {
-//   morningIcons,
-//   noonIcons,
-//   afternoonIcons,
-//   nightIcons,
-//   lateNightIcons,
-// } from '../constants/icons';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,16 +23,11 @@ const styles = StyleSheet.create({
 class HomeScreen extends Component {
   state = {
     modalOpen: false,
-    // icons: noonIcons,
-    // greetingBtns: [],
-    // greeting: 'Good Day!',
     followUserLocation: false,
-    // tagline: "Here's what's happening around the corner..",
   };
 
   componentDidMount() {
     this.openModal();
-    // this.renderTimeOfDay();
   }
 
   openModal = () => {
@@ -52,37 +38,6 @@ class HomeScreen extends Component {
     await cb();
     this.setState({ modalOpen: false });
   };
-
-  // renderTimeOfDay = () => {
-  //   const time = new Date().getHours();
-  //   let icons = [];
-  //   let greetingBtns = [];
-  //   let greeting = '';
-  //   if (time >= 4 && time < 11) {
-  //     icons = morningIcons;
-  //     greetingBtns = ['Breakfast', 'Coffee', 'Bike'];
-  //     greeting = 'Good Morning!';
-  //   } else if (time >= 11 && time < 15) {
-  //     icons = noonIcons;
-  //     greetingBtns = ['Lunch', 'Hike', 'Shop'];
-  //     greeting = 'Happy Day!';
-  //   } else if (time >= 15 && time < 18) {
-  //     icons = afternoonIcons;
-  //     greetingBtns = ['Lunch', 'Hike', 'Shop'];
-  //     greeting = 'Good Afternoon!';
-  //   } else if (time >= 18 && time < 22) {
-  //     icons = nightIcons;
-  //     greetingBtns = ['Lunch', 'Hike', 'Shop'];
-  //     greeting = 'Good Evening!';
-  //   } else if (time >= 22 || time < 4) {
-  //     icons = lateNightIcons;
-  //     greetingBtns = ['Lunch', 'Hike', 'Shop'];
-  //     greeting = 'Happy LateNight!';
-  //   }
-  //   greetingBtns.unshift('All');
-
-  //   this.setState({ icons, greeting, greetingBtns });
-  // };
 
   renderModalIcons = icons => icons.map((icon) => {
     const { navigation } = this.props;
@@ -105,7 +60,7 @@ class HomeScreen extends Component {
   });
 
   render() {
-    const { container, iconContainer } = styles;
+    const { container } = styles;
     const {
       navigation, loading, error, locales,
     } = this.props;
@@ -119,7 +74,7 @@ class HomeScreen extends Component {
       );
     }
 
-    const { icons, followUserLocation, modalOpen } = this.state;
+    const { followUserLocation, modalOpen } = this.state;
 
     const onMarkerPress = (id, name) => navigation.navigate('LocalePage', { id, name });
 

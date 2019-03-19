@@ -66,7 +66,6 @@ class ListScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#dfe6e9',
     backgroundColor: '#fdfdfd',
   },
 });

@@ -4,9 +4,6 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
-import TilePageHeader from '../../components/TilePageHeader';
-// <TilePageHeader uri={uri} title={name} caption={category} height={160} />
-
 import ContactBar from '../../components/ContactBar';
 import OpenTableBtn from '../../components/Buttons/OpenTableBtn';
 import FlexBtn from '../../components/Buttons/FlexBtn';
@@ -53,9 +50,6 @@ const LocaleScreen = ({ error, loading, locale }) => {
   } = location;
 
   const { container, textBox, headerStyle } = styles;
-  // <View>
-  //       <ContactBar phone={phone} coordinate={coordinate} website={website} />
-  //     </View>
   return (
     <View style={container} key={id}>
       <ScrollView
@@ -107,18 +101,11 @@ const LocaleScreen = ({ error, loading, locale }) => {
             }}
           >
             {opentable && (
-              // <FlexBtn color="#DA3743" onPress={() => WebBrowser.openBrowserAsync(opentable)}>
-              //   <Text style={{ color: '#fff', fontSize: 18, marginVertical: 3 }}>
-              //     Reserve Table
-              //   </Text>
-              // </FlexBtn>
               <FlexBtn
                 color="#fff"
                 onPress={() => WebBrowser.openBrowserAsync(opentable)}
                 style={{
-                  // shadowColor: '#2d3436',
                   shadowOffset: { width: 1, height: 2 },
-                  // shadowOpacity: 0.6,
                   shadowRadius: 2,
                   borderColor: 'rgba(45, 52, 54, 0.2)',
                   borderStyle: 'solid',
@@ -129,16 +116,11 @@ const LocaleScreen = ({ error, loading, locale }) => {
               </FlexBtn>
             )}
             {menu && (
-              // <FlexBtn color="#DA3743" onPress={() => WebBrowser.openBrowserAsync(menu)}>
-              //   <Text style={{ color: '#fff', fontSize: 18, marginVertical: 3 }}>Explore Menu</Text>
-              // </FlexBtn>
               <FlexBtn
                 color="#fff"
                 onPress={() => WebBrowser.openBrowserAsync(menu)}
                 style={{
-                  // shadowColor: '#2d3436',
                   shadowOffset: { width: 1, height: 2 },
-                  // shadowOpacity: 0.6,
                   shadowRadius: 2,
                   borderColor: 'rgba(45, 52, 54, 0.2)',
                   borderStyle: 'solid',
